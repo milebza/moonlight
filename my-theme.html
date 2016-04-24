@@ -1,0 +1,387 @@
+<!doctype html>
+<!--
+MOONLIGHT THEME
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{block:TagPage}{Tag} | {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} | {/block:SearchPage}{block:PostSummary}{PostSummary} | {/block:PostSummary}{Title}</title>
+    {block:Description}
+    <meta name="description" content="{MetaDescription}">
+    {/block:Description}
+
+    {block:Hidden}
+    <meta name="color:Background" content="#ffffff">
+    <meta name="color:Title" content="#000000">
+    <meta name="font:Title Font" content="courier">
+    <meta name="color:Title Background" content="#ffffff">
+    <meta name="color:Description" content="#000000">
+    <meta name="color:Navigation Links" content="#000000">
+    <meta name="font:Body Font" content="courier">
+    <meta name="color:Footer" content="#000000">
+
+    <!-- TODO: show captions boolean-->
+    <meta name="if:Show Captions" content="0">
+    {/block:Hidden}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+
+    <link rel="stylesheet" href="http://static.tumblr.com/xeccbfq/9Qenv9yn8/normalize.min.css" >
+
+    <style>
+    {CustomCSS}
+    /* Tumblr: Customizable elements */
+    body {
+      background-color:{color:Background};
+      font-family:{font:Body Font};
+    }
+
+    .blog-description {
+      color:{color:Description};
+    }
+
+    .blog-title {
+      background:{color:Title Background};
+      font-family:{font:Title Font};
+      font-size:20px;
+    }
+
+    .blog-title a {
+      color:{color:Title};
+    }
+
+    .nav-wrapper a {
+      color:{color:Navigation Links};
+    }
+
+    .contentinfo a {
+      color:{color:Footer};
+    }
+  </style>
+
+  <style>
+  /* my CSS */
+
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    display:inline-block;
+  }
+
+  .sidebar {
+    position:fixed;
+    width: 20%;
+    float:left;
+  }
+
+  main {
+    width: 80%;
+    float:left;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  nav ul {
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;;
+  }
+
+  .blog-title a:hover {
+    text-decoration: none;
+  }
+
+  /* Salvattore stuff */
+  main[data-columns]::before {
+    content: '4 .js-column.js-size-1of4';
+  }
+
+  .js-column {
+    float: left;
+    margin-left: 0.75%;
+    margin-right: 0.75%;
+  }
+
+  .js-size-1of1 {
+    width: 98.5%;
+  }
+  .js-size-1of2 {
+    width: 48.5%;
+   }
+  .js-size-1of3 {
+    width: 31.833333%;
+  }
+
+  .js-size-1of4 {
+    width: 23.5%;
+  }
+
+  @media screen and (max-width: 1200px) {
+    main[data-columns]::before {
+      content: '3 .js-column.js-size-1of3';
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    main[data-columns]::before {
+      content: '2 .js-column.js-size-1of2';
+    }
+    .meta-wrapper, .nav-wrapper {
+      display: inline-block;
+    }
+  }
+
+  @media screen and (max-width: 550px){
+    main[data-columns]::before {
+      content: '1 .js-column.js-size-1of1';
+    }
+  }
+  </style>
+
+  </head>
+
+
+  <body class="{block:IndexPage}is-index-page{/block:IndexPage} {block:PermalinkPage}is-permalink-page{/block:PermalinkPage}">
+  <div class="container">
+    <div class="sidebar">
+      <div class="meta-wrapper">
+
+        <div class="blog-details">
+          {block:ShowTitle}
+          <h1 class="blog-title">
+            <p><a href="/" title="{lang:Home}">{Title}</a><p>
+          </h1>
+          {/block:ShowTitle}
+
+          {block:ShowDescription}
+          {block:Description}
+          <p class="blog-description">{Description}</p>
+          {block:Description}
+          {/block:ShowDescription}
+        </div>
+      </div>
+
+      <div class="nav-wrapper">
+        <nav>
+          <ul>
+              {block:HasPages}
+              {block:Pages}
+              <li>
+                <a href="{URL}">{Label}</a>
+              </li>
+              {/block:Pages}
+              {/block:HasPages}
+
+              {block:AskEnabled}
+              <li>
+                <a href="/ask">message</a>
+              </li>
+              {/block:AskEnabled}
+
+              {block:SubmissionsEnabled}
+              <li>
+                <a href="/submit">submit</a>
+              </li>
+              {/block:SubmissionsEnabled}
+
+              <li>
+                <a href="/archive">archive</a>
+              </li>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+      <main role="main" {block:IndexPage}data-columns{/block:IndexPage}>
+        {block:Posts}
+        <article {block:PermalinkPage}class='js-column'{/block:PermalinkPage}>
+          {block:Text}
+          <div class="type-text post-content">
+            {block:Title}
+            <h2 class="title">
+              <a href="{Permalink}">{Title}</a>
+            </h2>
+            {/block:Title}
+
+            {Body}
+          </div>
+          {/block:Text}
+
+          {block:Photo}
+          <figure class="type-photo post-content">
+            {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
+
+            {block:IfShowCaptions}
+            {block:Caption}
+            <figcaption class="caption">
+              {Caption}
+            </figcaption>
+            {/block:Caption}
+            {block:IfShowCaptions}
+          </figure>
+          {/block:Photo}
+
+          {block:Photoset}
+          <figure class="type-photoset post-content">
+            {Photoset}
+
+            {block:IfShowCaptions}
+            {block:Caption}
+            <figcaption class="caption">
+              {Caption}
+            </figcaption>
+            {/block:Caption}
+            {block:IfShowCaptions}
+          </figure>
+          {/block:Photoset}
+
+          {block:Quote}
+          <div class="type-quote post-content">
+            <blockquote>{Quote}</blockquote>
+
+            {block:Source}
+            <cite class="caption">
+              {Source}
+            </cite>
+            {/block:Source}
+          </div>
+          {/block:Quote}
+
+          {block:Link}
+          <div class="type-link post-content">
+            <a {Target} href="{URL}" class="link-name">{Name}</a>
+
+            {block:Description}
+            <div class="caption">
+              {Description}
+            </div>
+            {/block:Description}
+          </div>
+          {/block:Link}
+
+          {block:Chat}
+          <div class="type-chat post-content">
+            <ul class="chat-lines">
+              {block:Lines}
+              <li>
+                {block:Label}<span class="label">{Label}</span>{/block:Label} {Line}
+              </li>
+              {/block:Lines}
+            </ul>
+          </div>
+          {/block:Chat}
+
+          {block:Audio}
+          <div class="type-audio post-content">
+            {block:AudioEmbed}
+                {AudioEmbed color="white"}
+            {/block:AudioEmbed}
+
+            {block:IfShowCaptions}
+            {block:Caption}
+            <div class="caption">
+              {Caption}
+            </div>
+            {/block:Caption}
+            {block:IfShowCaptions}
+          </div>
+          {/block:Audio}
+
+          {block:Video}
+          <div class="type-video post-content">
+            {Video-700}
+
+            {block:IfShowCaptions}
+            {block:Caption}
+            <div class="caption">
+              {Caption}
+            </div>
+            {/block:Caption}
+            {block:IfShowCaptions}
+          </div>
+          {/block:Video}
+
+          {block:Answer}
+          <div class="type-answer post-content">
+            <div class="question">
+              <p class="asker">
+                <span class="user-name">{Asker}</span>{block:English} asked{/block:English}:
+              </p>
+
+              <h2 class="title">{Question}</h2>
+            </div>
+
+            {block:Answerer}
+            <div class="answer">
+                <p class="answerer">
+                  <span class="user-name">{Answerer}</span>{block:English} answered{/block:English}:
+                </p>
+
+                <div class="caption">
+                    {Answer}
+                </div>
+            </div>
+            {/block:Answerer}
+
+            <div class="replies">
+              {Replies}
+            </div>
+          </div>
+          {/block:Answer}
+
+          {block:Date}
+          <footer class="contentinfo" role="contentinfo">
+            <a href="{Permalink}" title="{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}">
+                {TimeAgo}
+            </a>
+
+            {block:NoteCount}
+            <a class="note-count" href="{Permalink}#notes">
+              {NoteCountWithLabel}
+            </a>
+            {/block:NoteCount}
+
+            {block:RebloggedFrom}
+            <a class="reblog-link" href="{ReblogParentURL}">
+              {ReblogParentName}
+            </a>
+            {/block:RebloggedFrom}
+
+            {block:PermalinkPage}
+
+            {block:HasTags}
+            <ul class="tags">
+              {block:Tags}<li><a href="{TagURL}">#{Tag}</a> </li>{/block:Tags}
+            </ul>
+            {/block:HasTags}
+
+            {block:PostNotes}
+            <div class="post-notes">
+              {PostNotes}
+            </div>
+            {/block:PostNotes}
+
+            {/block:PermalinkPage}
+          </footer>
+          {/block:Date}
+        </article>
+        {/block:Posts}
+      </main>
+      </div>
+
+    <script src="//static.tumblr.com/xeccbfq/Qgqnv9yqb/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/salvattore/1.0.9/salvattore.min.js"></script>
+  </body>
+</html>
