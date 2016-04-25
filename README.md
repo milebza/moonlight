@@ -2,7 +2,7 @@
 ####~ theme not finished yet! ~
 
 ####Theme for tumblr 
-Languagues used:
+Languages used:
 
 	* HTML 
 	* CSS 
