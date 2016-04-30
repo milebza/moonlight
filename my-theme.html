@@ -14,14 +14,13 @@ MOONLIGHT THEME
     <meta name="color:Background" content="#ffffff">
     <meta name="color:Title" content="#000000">
     <meta name="font:Title Font" content="courier">
-    <meta name="color:Title Background" content="#ffffff">
     <meta name="color:Description" content="#000000">
     <meta name="color:Navigation Links" content="#000000">
     <meta name="font:Body Font" content="courier">
     <meta name="color:Footer" content="#000000">
+    <meta name="color:Background Color Hover" content="#80ffcc">
 
-    <!-- TODO: show captions boolean-->
-    <meta name="if:Show Captions" content="0">
+    <meta name="if:Show Footer" content="1">
     {/block:Hidden}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +29,7 @@ MOONLIGHT THEME
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
 
     <link rel="stylesheet" href="http://static.tumblr.com/xeccbfq/9Qenv9yn8/normalize.min.css" >
+
 
     <style>
     {CustomCSS}
@@ -44,9 +44,7 @@ MOONLIGHT THEME
     }
 
     .blog-title {
-      background:{color:Title Background};
       font-family:{font:Title Font};
-      font-size:20px;
     }
 
     .blog-title a {
@@ -57,7 +55,12 @@ MOONLIGHT THEME
       color:{color:Navigation Links};
     }
 
-    .contentinfo a {
+    .nav-wrapper a:hover {
+      background-color:{color:Background Color Hover};
+      color:white;
+    }
+
+    a, .contentinfo a {
       color:{color:Footer};
     }
   </style>
@@ -65,87 +68,154 @@ MOONLIGHT THEME
   <style>
   /* my CSS */
 
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    display:inline-block;
+  body {
+    font-size: 12px;
+  }
+
+  .audiopost {
+    {block:IndexPage}
+    width:200px;
+    padding-bottom:10px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:400px;
+    padding-bottom:110px;
+    {/block:PermalinkPage}
+  }
+
+  .albumart {
+    position: absolute;
+    {block:IndexPage}
+    width:50px;
+    height:50px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:150px;
+    height:150px;
+    {/block:PermalinkPage}
+  }
+
+  .albumart img {
+      float:left;
+  {block:IndexPage}
+      width:50px;
+      height:50px;
+  {/block:IndexPage}
+  {block:PermalinkPage}
+      width:150px;
+      height:150px;
+  {/block:PermalinkPage}
+ }
+
+ .playbox {
+     opacity:0.6;
+     width:27px;
+     height:30px;
+     overflow:hidden;
+     position:absolute;
+     z-index:2;
+ {block:IndexPage}
+     margin-left:11px;
+     margin-top:12px;
+ {block:IndexPage}
+ {block:PermalinkPage}
+     margin-left:60px;
+     margin-top:61px;
+ {/block:PermalinkPage}
+  }
+
+  .info {
+      margin-top:2px;
+      line-height:12px;
+      font-size:8px;
+      text-transform:uppercase;
+  {block:IndexPage}
+      margin-left:58px;
+  {block:IndexPage}
+  {block:PermalinkPage}
+      margin-left:158px;
+  {/block:PermalinkPage}
+ }
+
+ .permalink {
+     margin-top:11px;
+     text-align:left;
+ {block:PermalinkPage}
+     opacity:0;
+ {/block:PermalinkPage}
+ }
+
+ .permalink a:hover, .pagination a:hover {
+     color:white;
+ }
+
+ .notes {
+     padding-left:20px;
   }
 
   .sidebar {
     position:fixed;
-    width: 20%;
+    top:100px;
+    margin-left:20px;
+    width: 150px;
     float:left;
   }
 
   main {
-    width: 80%;
-    float:left;
+      position:absolute;
+      float:left;
+      margin-top:20px;
+      left:50%;
+  {block:IndexPage}
+      width:834px;
+      margin-left:-417px;
+  {/block:IndexPage}
+  {block:PermalinkPage}
+      margin-left:-200px;
+      width:400px;
+      padding:10px;
+      margin-top:40px;
+      margin-bottom:25px;
+  {/block:PermalinkPage}
+}
+
+  .post {
+  {block:indexpage}
+      width:200px;
+      margin:30px;
+      padding:8px 8px 6px 8px;
+      border:1px solid;
+  {/block:indexpage}
+  {block:permalinkpage}
+      width:400px;
+  {/block:permalinkpage}
+      float:left;
+      position:relative;
+      text-align:left;
+      overflow:hidden;
+    }
+
+  .post img{
+      max-width:100%;
   }
 
-  img {
-    max-width: 100%;
+  .blog-title {
+    font-size:18px;
+    text-transform:uppercase;
   }
 
-  nav ul {
+  .nav-wrapper ul{
     list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .pagination {
+      font-size:25px;
   }
 
   a {
     text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;;
-  }
-
-  .blog-title a:hover {
-    text-decoration: none;
-  }
-
-  /* Salvattore stuff */
-  main[data-columns]::before {
-    content: '4 .js-column.js-size-1of4';
-  }
-
-  .js-column {
-    float: left;
-    margin-left: 0.75%;
-    margin-right: 0.75%;
-  }
-
-  .js-size-1of1 {
-    width: 98.5%;
-  }
-  .js-size-1of2 {
-    width: 48.5%;
-   }
-  .js-size-1of3 {
-    width: 31.833333%;
-  }
-
-  .js-size-1of4 {
-    width: 23.5%;
-  }
-
-  @media screen and (max-width: 1200px) {
-    main[data-columns]::before {
-      content: '3 .js-column.js-size-1of3';
-    }
-  }
-
-  @media screen and (max-width: 900px) {
-    main[data-columns]::before {
-      content: '2 .js-column.js-size-1of2';
-    }
-    .meta-wrapper, .nav-wrapper {
-      display: inline-block;
-    }
-  }
-
-  @media screen and (max-width: 550px){
-    main[data-columns]::before {
-      content: '1 .js-column.js-size-1of1';
-    }
   }
   </style>
 
@@ -153,7 +223,7 @@ MOONLIGHT THEME
 
 
   <body class="{block:IndexPage}is-index-page{/block:IndexPage} {block:PermalinkPage}is-permalink-page{/block:PermalinkPage}">
-  <div class="container">
+  <!--<div class="container">-->
     <div class="sidebar">
       <div class="meta-wrapper">
 
@@ -202,77 +272,101 @@ MOONLIGHT THEME
           </ul>
         </nav>
       </div>
+
+      <br><br>
+
+    {block:Pagination}
+    <nav class="pagination">
+        {block:PreviousPage}<a href="{PreviousPage}">←</a>{/block:PreviousPage} {block:NextPage}<a href="{NextPage}">→</a>{/block:NextPage}
+    </nav>
+    {/block:Pagination}
     </div>
 
-      <main role="main" {block:IndexPage}data-columns{/block:IndexPage}>
+      <main role="main">
         {block:Posts}
-        <article {block:PermalinkPage}class='js-column'{/block:PermalinkPage}>
+        <article>
+          <!--<div class="withfooter">-->
+
           {block:Text}
-          <div class="type-text post-content">
+          <div class="post">
             {block:Title}
             <h2 class="title">
               <a href="{Permalink}">{Title}</a>
             </h2>
             {/block:Title}
-
             {Body}
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
+            </div>
           </div>
           {/block:Text}
 
           {block:Photo}
-          <figure class="type-photo post-content">
+          <figure class="post">
+            {block:IndexPage}
             {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
-
-            {block:IfShowCaptions}
-            {block:Caption}
-            <figcaption class="caption">
-              {Caption}
-            </figcaption>
-            {/block:Caption}
-            {block:IfShowCaptions}
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
+            </div>
+            {/block:IndexPage}
+            {block:PermalinkPage}<img src="{PhotoURL-HighRes}"  alt="{PhotoAlt}">
+            <br><br>
+            {/block:PermalinkPage}
           </figure>
           {/block:Photo}
 
           {block:Photoset}
-          <figure class="type-photoset post-content">
+          <figure class="post">
+            {block:IndexPage}
             {Photoset}
-
-            {block:IfShowCaptions}
-            {block:Caption}
-            <figcaption class="caption">
-              {Caption}
-            </figcaption>
-            {/block:Caption}
-            {block:IfShowCaptions}
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
+            </div>
+            {/block:IndexPage}
+            {block:PermalinkPage}
+                {Photoset}
+            {/block:PermalinkPage}
           </figure>
           {/block:Photoset}
 
-          {block:Quote}
-          <div class="type-quote post-content">
-            <blockquote>{Quote}</blockquote>
 
+          {block:Quote}
+          <div class="post">
+            {block:IndexPage}
+            <blockquote><i>{Quote}</i></blockquote>
             {block:Source}
             <cite class="caption">
-              {Source}
+              — {Source}
             </cite>
             {/block:Source}
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
+            </div>
+            {block:IndexPage}
           </div>
           {/block:Quote}
 
           {block:Link}
-          <div class="type-link post-content">
+          <div class="post">
             <a {Target} href="{URL}" class="link-name">{Name}</a>
-
             {block:Description}
             <div class="caption">
               {Description}
             </div>
             {/block:Description}
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
+            </div>
           </div>
           {/block:Link}
 
           {block:Chat}
-          <div class="type-chat post-content">
+          <div class="post">
             <ul class="chat-lines">
               {block:Lines}
               <li>
@@ -280,108 +374,135 @@ MOONLIGHT THEME
               </li>
               {/block:Lines}
             </ul>
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
+            </div>
           </div>
           {/block:Chat}
 
           {block:Audio}
-          <div class="type-audio post-content">
-            {block:AudioEmbed}
-                {AudioEmbed color="white"}
-            {/block:AudioEmbed}
-
-            {block:IfShowCaptions}
-            {block:Caption}
-            <div class="caption">
-              {Caption}
+          <div class="post">
+            <div class="audiopost">
+              {block:AlbumArt}
+              <div class="albumart">
+                <img src="{AlbumArtURL}">
+              </div>
+              {/block:AlbumArt}
+              <div class="playbox">
+                {block:AudioPlayer}{AudioPlayerWhite}{/block:AudioPlayer}
+              </div>
+              <div class="info">
+                <b>Artist:</b>
+                <span {block:Artist} style="display:none;"{/block:Artist}>Unknown</span>
+                {block:Artist}{Artist}{/block:Artist}
+                <br>
+                <b>Title:</b>
+                <span{block:TrackName} style="display:none;"{/block:TrackName}>Unknown</span>
+                {block:TrackName}{TrackName}{/block:TrackName}
+                <br>
+                <b>Album:</b>
+                <span{block:Album} style="display:none;"{/block:Album}>Unknown</span>
+                {block:Album}{Album}{/block:Album}{block:PlayCount}
+                <br>
+                <b>Plays:</b>
+                {FormattedPlayCount}{/block:PlayCount}
+              </div>
+              </div>
+            {block:IndexPage}
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
             </div>
-            {/block:Caption}
-            {block:IfShowCaptions}
+            {block:IndexPage}
           </div>
           {/block:Audio}
 
           {block:Video}
-          <div class="type-video post-content">
-            {Video-700}
-
-            {block:IfShowCaptions}
-            {block:Caption}
-            <div class="caption">
-              {Caption}
+          <div class="post">
+            {block:IndexPage}
+            {Video-500}
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
             </div>
-            {/block:Caption}
-            {block:IfShowCaptions}
+            {/block:IndexPage}
+            {block:PermalinkPage}
+            {Video-400}
+            {/block:PermalinkPage}
           </div>
           {/block:Video}
 
           {block:Answer}
-          <div class="type-answer post-content">
+          <div class="post answer">
             <div class="question">
               <p class="asker">
-                <span class="user-name">{Asker}</span>{block:English} asked{/block:English}:
+                <span class="user-name">{Asker}</span>{block:English} said{/block:English}: {Question}
               </p>
-
-              <h2 class="title">{Question}</h2>
             </div>
-
             {block:Answerer}
             <div class="answer">
-                <p class="answerer">
-                  <span class="user-name">{Answerer}</span>{block:English} answered{/block:English}:
-                </p>
-
-                <div class="caption">
-                    {Answer}
-                </div>
+              {Answer}
             </div>
             {/block:Answerer}
-
             <div class="replies">
               {Replies}
             </div>
+            <div class="permalink">
+                <a href="{Permalink}">{NoteCount}</a> /
+                <a href="{Permalink}">{TimeAgo}</a>
+            </div>
           </div>
           {/block:Answer}
+         <!--</div>-->
 
-          {block:Date}
-          <footer class="contentinfo" role="contentinfo">
-            <a href="{Permalink}" title="{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}">
-                {TimeAgo}
-            </a>
+          {block:PermalinkPage}
+              <div class="notes">
+              <p>{block:Date}
+                {Caption} posted {TimeAgo}
+              {/block:Date}
 
-            {block:NoteCount}
-            <a class="note-count" href="{Permalink}#notes">
-              {NoteCountWithLabel}
-            </a>
-            {/block:NoteCount}
+              {block:NoteCount}
+                with {NoteCount} notes
+              {/block:NoteCount}
 
-            {block:RebloggedFrom}
-            <a class="reblog-link" href="{ReblogParentURL}">
-              {ReblogParentName}
-            </a>
-            {/block:RebloggedFrom}
+              {block:RebloggedFrom}
+              via <a href="{ReblogParentURL}">{ReblogParentName}</a>,
+              {/block:RebloggedFrom}
 
-            {block:PermalinkPage}
+              {block:ContentSource}
+              originally from <a href="{SourceURL}">{SourceTitle}</a>
+              {/block:ContentSource}</p>
 
-            {block:HasTags}
-            <ul class="tags">
-              {block:Tags}<li><a href="{TagURL}">#{Tag}</a> </li>{/block:Tags}
-            </ul>
-            {/block:HasTags}
-
-            {block:PostNotes}
-            <div class="post-notes">
+              <br>
+              {block:hastags}
+                {block:tags}
+                #<a href="/tagged/{Tag}">{Tag}</a> &nbsp;&nbsp;
+                {/block:tags}
+              {/block:hastags}
+              <br><br>
               {PostNotes}
-            </div>
-            {/block:PostNotes}
+              </div>
+          {/block:PermalinkPage}
 
-            {/block:PermalinkPage}
-          </footer>
-          {/block:Date}
+
+
         </article>
         {/block:Posts}
       </main>
-      </div>
+      <!--</div>-->
 
     <script src="//static.tumblr.com/xeccbfq/Qgqnv9yqb/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/salvattore/1.0.9/salvattore.min.js"></script>
+    <script src="masonry.pkgd.min.js"></script>
+
+    <script>
+        $(function() {
+            $('.withfooter').masonry({
+                itemSelector: '.post',
+                columWidth:200,
+            });
+        });
+    </script>
+
   </body>
 </html>
