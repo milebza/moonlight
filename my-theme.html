@@ -67,7 +67,6 @@ MOONLIGHT THEME
 
   <style>
   /* my CSS */
-
   body {
     font-size: 12px;
   }
@@ -223,7 +222,6 @@ MOONLIGHT THEME
 
 
   <body class="{block:IndexPage}is-index-page{/block:IndexPage} {block:PermalinkPage}is-permalink-page{/block:PermalinkPage}">
-  <!--<div class="container">-->
     <div class="sidebar">
       <div class="meta-wrapper">
 
@@ -285,7 +283,7 @@ MOONLIGHT THEME
       <main role="main">
         {block:Posts}
         <article>
-          <!--<div class="withfooter">-->
+          <div class="withfooter">
 
           {block:Text}
           <div class="post">
@@ -454,7 +452,7 @@ MOONLIGHT THEME
             </div>
           </div>
           {/block:Answer}
-         <!--</div>-->
+         </div>
 
           {block:PermalinkPage}
               <div class="notes">
@@ -490,15 +488,14 @@ MOONLIGHT THEME
         </article>
         {/block:Posts}
       </main>
-      <!--</div>-->
 
     <script src="//static.tumblr.com/xeccbfq/Qgqnv9yqb/jquery.min.js"></script>
-    <script src="masonry.pkgd.min.js"></script>
+    <script src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
 
     <script>
         $(function() {
-            $('.withfooter').masonry({
-                itemSelector: '.post',
+            $('main').masonry({
+                itemSelector:'.post',
                 columWidth:200,
             });
         });
