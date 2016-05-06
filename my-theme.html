@@ -1,11 +1,13 @@
 <!doctype html>
 <!--
+
 MOONLIGHT THEME
+
 -->
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{block:TagPage}{Tag} | {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} | {/block:SearchPage}{block:PostSummary}{PostSummary} | {/block:PostSummary}{Title}</title>
+    <title>{Title}</title>
     {block:Description}
     <meta name="description" content="{MetaDescription}">
     {/block:Description}
@@ -16,11 +18,11 @@ MOONLIGHT THEME
     <meta name="font:Title Font" content="courier">
     <meta name="color:Description" content="#000000">
     <meta name="color:Navigation Links" content="#000000">
-    <meta name="font:Body Font" content="courier">
+    <meta name="color:Navigation Links Background" content="#f0f5f5">
+    <meta name="color:Navigation Links Hover" content="#000000">
+    <meta name="color:Nav Links Background Hover" content="#ffffff">
+    <meta name="font:Body Font" content="Courier New">
     <meta name="color:Footer" content="#000000">
-    <meta name="color:Background Color Hover" content="#80ffcc">
-
-    <meta name="if:Show Footer" content="1">
     {/block:Hidden}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +31,6 @@ MOONLIGHT THEME
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
 
     <link rel="stylesheet" href="http://static.tumblr.com/xeccbfq/9Qenv9yn8/normalize.min.css" >
-
 
     <style>
     {CustomCSS}
@@ -53,19 +54,18 @@ MOONLIGHT THEME
 
     .nav-wrapper a {
       color:{color:Navigation Links};
+      background-color:{color:Navigation Links Background};
     }
 
     .nav-wrapper a:hover {
-      background-color:{color:Background Color Hover};
-      color:white;
+      color:{color:Navigation Links Hover};
+      background-color:{color:Nav Links Background Hover};
     }
 
     a, .contentinfo a {
       color:{color:Footer};
     }
-  </style>
 
-  <style>
   /* my CSS */
   body {
     font-size: 12px;
@@ -95,53 +95,63 @@ MOONLIGHT THEME
   }
 
   .albumart img {
-      float:left;
-  {block:IndexPage}
-      width:50px;
-      height:50px;
-  {/block:IndexPage}
-  {block:PermalinkPage}
-      width:150px;
-      height:150px;
-  {/block:PermalinkPage}
+    float:left;
+    {block:IndexPage}
+    width:50px;
+    height:50px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:150px;
+    height:150px;
+    {/block:PermalinkPage}
  }
 
  .playbox {
-     opacity:0.6;
-     width:27px;
-     height:30px;
-     overflow:hidden;
-     position:absolute;
-     z-index:2;
- {block:IndexPage}
-     margin-left:11px;
-     margin-top:12px;
- {block:IndexPage}
- {block:PermalinkPage}
-     margin-left:60px;
-     margin-top:61px;
- {/block:PermalinkPage}
-  }
+   opacity:0.6;
+   width:27px;
+   height:30px;
+   overflow:hidden;
+   position:absolute;
+   z-index:2;
+   {block:IndexPage}
+   margin-left:11px;
+   margin-top:12px;
+   {block:IndexPage}
+   {block:PermalinkPage}
+   margin-left:60px;
+   margin-top:61px;
+   {/block:PermalinkPage}
+ }
 
-  .info {
-      margin-top:2px;
-      line-height:12px;
-      font-size:8px;
-      text-transform:uppercase;
-  {block:IndexPage}
-      margin-left:58px;
-  {block:IndexPage}
-  {block:PermalinkPage}
-      margin-left:158px;
-  {/block:PermalinkPage}
+ .info {
+   margin-top:2px;
+   line-height:12px;
+   font-size:8px;
+   text-transform:uppercase;
+   {block:IndexPage}
+   margin-left:58px;
+   {block:IndexPage}
+   {block:PermalinkPage}
+   margin-left:158px;
+   {/block:PermalinkPage}
+ }
+
+ .video embed, .video object, .video iframe {
+   {block:IndexPage}
+   width:200px;
+   height:auto;
+   {/block:IndexPage}
+   {block:PermalinkPage}
+   width:400px;
+   {/block:PermalinkPage}
  }
 
  .permalink {
-     margin-top:11px;
-     text-align:left;
- {block:PermalinkPage}
-     opacity:0;
- {/block:PermalinkPage}
+  margin-top:11px;
+  text-align:left;
+  {block:PermalinkPage}
+  opacity:0;
+  {/block:PermalinkPage}
  }
 
  .permalink a:hover, .pagination a:hover {
@@ -150,7 +160,7 @@ MOONLIGHT THEME
 
  .notes {
      padding-left:20px;
-  }
+   }
 
   .sidebar {
     position:fixed;
@@ -165,34 +175,34 @@ MOONLIGHT THEME
       float:left;
       margin-top:20px;
       left:50%;
-  {block:IndexPage}
+      {block:IndexPage}
       width:834px;
       margin-left:-417px;
-  {/block:IndexPage}
-  {block:PermalinkPage}
+      {/block:IndexPage}
+      {block:PermalinkPage}
       margin-left:-200px;
       width:400px;
       padding:10px;
       margin-top:40px;
       margin-bottom:25px;
-  {/block:PermalinkPage}
-}
+      {/block:PermalinkPage}
+  }
 
   .post {
-  {block:indexpage}
-      width:200px;
-      margin:30px;
-      padding:8px 8px 6px 8px;
-      border:1px solid;
-  {/block:indexpage}
-  {block:permalinkpage}
-      width:400px;
-  {/block:permalinkpage}
-      float:left;
-      position:relative;
-      text-align:left;
-      overflow:hidden;
-    }
+    {block:indexpage}
+    width:200px;
+    margin:30px;
+    padding:8px 8px 6px 8px;
+    border:1px solid white;
+    {/block:indexpage}
+    {block:permalinkpage}
+    width:400px;
+    {/block:permalinkpage}
+    float:left;
+    position:relative;
+    text-align:left;
+    overflow:hidden;
+  }
 
   .post img{
       max-width:100%;
@@ -216,6 +226,10 @@ MOONLIGHT THEME
   a {
     text-decoration: none;
   }
+
+  .answer figure {
+      margin: 5px 0 !important;
+  }
   </style>
 
   </head>
@@ -227,278 +241,276 @@ MOONLIGHT THEME
 
         <div class="blog-details">
           {block:ShowTitle}
-          <h1 class="blog-title">
-            <p><a href="/" title="{lang:Home}">{Title}</a><p>
-          </h1>
+            <h1 class="blog-title">
+              <p><a href="/" title="{lang:Home}">{Title}</a><p>
+            </h1>
           {/block:ShowTitle}
 
           {block:ShowDescription}
-          {block:Description}
-          <p class="blog-description">{Description}</p>
-          {block:Description}
+            {block:Description}
+              <p class="blog-description">{Description}</p>
+            {block:Description}
           {/block:ShowDescription}
         </div>
       </div>
 
       <div class="nav-wrapper">
         <nav>
-          <ul>
-              {block:HasPages}
+            {block:HasPages}
               {block:Pages}
-              <li>
-                <a href="{URL}">{Label}</a>
-              </li>
+                  <a href="{URL}">{Label}</a> &nbsp;&nbsp;
               {/block:Pages}
-              {/block:HasPages}
-
-              {block:AskEnabled}
-              <li>
-                <a href="/ask">message</a>
-              </li>
-              {/block:AskEnabled}
-
-              {block:SubmissionsEnabled}
-              <li>
+            {/block:HasPages}
+            {block:AskEnabled}
+                <a href="/ask">message</a> &nbsp;&nbsp;
+            {/block:AskEnabled}
+                <a href="/archive">archive</a> &nbsp;&nbsp;
+            {block:SubmissionsEnabled}
                 <a href="/submit">submit</a>
-              </li>
-              {/block:SubmissionsEnabled}
-
-              <li>
-                <a href="/archive">archive</a>
-              </li>
-
-          </ul>
+            {/block:SubmissionsEnabled}
         </nav>
       </div>
 
-      <br><br>
+    <br><br>
 
-    {block:Pagination}
-    <nav class="pagination">
-        {block:PreviousPage}<a href="{PreviousPage}">←</a>{/block:PreviousPage} {block:NextPage}<a href="{NextPage}">→</a>{/block:NextPage}
-    </nav>
-    {/block:Pagination}
+      {block:Pagination}
+        <nav class="pagination">
+          {block:PreviousPage}<a href="{PreviousPage}">←</a>{/block:PreviousPage} {block:NextPage}<a href="{NextPage}">→</a>{/block:NextPage}
+        </nav>
+      {/block:Pagination}
     </div>
 
-      <main role="main">
-        {block:Posts}
+    <main role="main">
+      {block:Posts}
         <article>
-          <div class="withfooter">
-
           {block:Text}
-          <div class="post">
+            <div class="post">
             {block:Title}
-            <h2 class="title">
-              <a href="{Permalink}">{Title}</a>
-            </h2>
+              <h2 class="title">
+                <a href="{Permalink}">{Title}</a>
+              </h2>
             {/block:Title}
             {Body}
-            <div class="permalink">
+              <div class="permalink">
                 <a href="{Permalink}">{NoteCount}</a> /
                 <a href="{Permalink}">{TimeAgo}</a>
+              </div>
             </div>
-          </div>
           {/block:Text}
 
           {block:Photo}
-          <figure class="post">
-            {block:IndexPage}
-            {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
-            <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
-            </div>
-            {/block:IndexPage}
-            {block:PermalinkPage}<img src="{PhotoURL-HighRes}"  alt="{PhotoAlt}">
-            <br><br>
-            {/block:PermalinkPage}
-          </figure>
+            <figure class="post">
+              {block:IndexPage}
+                {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
+                <div class="permalink">
+                  <a href="{Permalink}">{NoteCount}</a> /
+                  <a href="{Permalink}">{TimeAgo}</a>
+                </div>
+              {/block:IndexPage}
+              {block:PermalinkPage}
+                <img src="{PhotoURL-HighRes}"  alt="{PhotoAlt}">
+              {/block:PermalinkPage}
+            </figure>
           {/block:Photo}
 
           {block:Photoset}
-          <figure class="post">
-            {block:IndexPage}
-            {Photoset}
-            <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
-            </div>
-            {/block:IndexPage}
-            {block:PermalinkPage}
+            <figure class="post">
+              {block:IndexPage}
                 {Photoset}
-            {/block:PermalinkPage}
-          </figure>
+                <div class="permalink">
+                  <a href="{Permalink}">{NoteCount}</a> /
+                  <a href="{Permalink}">{TimeAgo}</a>
+                </div>
+              {/block:IndexPage}
+              {block:PermalinkPage}
+                {Photoset}
+              {/block:PermalinkPage}
+            </figure>
           {/block:Photoset}
 
 
           {block:Quote}
-          <div class="post">
-            {block:IndexPage}
-            <blockquote><i>{Quote}</i></blockquote>
-            {block:Source}
-            <cite class="caption">
-              — {Source}
-            </cite>
-            {/block:Source}
-            <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
+            <div class="post">
+              {block:IndexPage}
+                <blockquote><i>{Quote}</i></blockquote>
+                {block:Source}
+                <cite class="caption">
+                — {Source}
+                </cite>
+                {/block:Source}
+                <div class="permalink">
+                  <a href="{Permalink}">{NoteCount}</a> /
+                  <a href="{Permalink}">{TimeAgo}</a>
+                </div>
+              {block:IndexPage}
             </div>
-            {block:IndexPage}
-          </div>
           {/block:Quote}
 
           {block:Link}
-          <div class="post">
-            <a {Target} href="{URL}" class="link-name">{Name}</a>
-            {block:Description}
-            <div class="caption">
-              {Description}
-            </div>
-            {/block:Description}
-            <div class="permalink">
+            <div class="post">
+              <a {Target} href="{URL}" class="link-name">{Name}</a>
+              {block:Description}
+                <div class="caption">
+                  {Description}
+                </div>
+              {/block:Description}
+              <div class="permalink">
                 <a href="{Permalink}">{NoteCount}</a> /
                 <a href="{Permalink}">{TimeAgo}</a>
+              </div>
             </div>
-          </div>
           {/block:Link}
 
           {block:Chat}
-          <div class="post">
-            <ul class="chat-lines">
-              {block:Lines}
-              <li>
-                {block:Label}<span class="label">{Label}</span>{/block:Label} {Line}
-              </li>
-              {/block:Lines}
-            </ul>
-            <div class="permalink">
+            <div class="post">
+              <ul class="chat-lines">
+                {block:Lines}
+                  <li>
+                    {block:Label}<span class="label">{Label}</span>{/block:Label} {Line}
+                  </li>
+                {/block:Lines}
+              </ul>
+              <div class="permalink">
                 <a href="{Permalink}">{NoteCount}</a> /
                 <a href="{Permalink}">{TimeAgo}</a>
+              </div>
             </div>
-          </div>
           {/block:Chat}
 
           {block:Audio}
-          <div class="post">
-            <div class="audiopost">
-              {block:AlbumArt}
-              <div class="albumart">
-                <img src="{AlbumArtURL}">
+            <div class="post">
+              <div class="audiopost">
+                {block:AlbumArt}
+                  <div class="albumart">
+                    <img src="{AlbumArtURL}">
+                  </div>
+                  {/block:AlbumArt}
+                  <div class="playbox">
+                    {block:AudioPlayer}{AudioPlayerWhite}{/block:AudioPlayer}
+                  </div>
+                  <div class="info">
+                    <b>Artist:</b>
+                    <span {block:Artist} style="display:none;"{/block:Artist}>Unknown</span>
+                    {block:Artist}{Artist}{/block:Artist}
+                    <br>
+                    <b>Title:</b>
+                    <span{block:TrackName} style="display:none;"{/block:TrackName}>Unknown</span>
+                    {block:TrackName}{TrackName}{/block:TrackName}
+                    <br>
+                    <b>Album:</b>
+                    <span{block:Album} style="display:none;"{/block:Album}>Unknown</span>
+                    {block:Album}{Album}{/block:Album}{block:PlayCount}
+                    <br>
+                    <b>Plays:</b>
+                    {FormattedPlayCount}{/block:PlayCount}
+                  </div>
               </div>
-              {/block:AlbumArt}
-              <div class="playbox">
-                {block:AudioPlayer}{AudioPlayerWhite}{/block:AudioPlayer}
-              </div>
-              <div class="info">
-                <b>Artist:</b>
-                <span {block:Artist} style="display:none;"{/block:Artist}>Unknown</span>
-                {block:Artist}{Artist}{/block:Artist}
-                <br>
-                <b>Title:</b>
-                <span{block:TrackName} style="display:none;"{/block:TrackName}>Unknown</span>
-                {block:TrackName}{TrackName}{/block:TrackName}
-                <br>
-                <b>Album:</b>
-                <span{block:Album} style="display:none;"{/block:Album}>Unknown</span>
-                {block:Album}{Album}{/block:Album}{block:PlayCount}
-                <br>
-                <b>Plays:</b>
-                {FormattedPlayCount}{/block:PlayCount}
-              </div>
-              </div>
-            {block:IndexPage}
-            <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
+              {block:IndexPage}
+                <div class="permalink">
+                  <a href="{Permalink}">{NoteCount}</a> /
+                  <a href="{Permalink}">{TimeAgo}</a>
+                </div>
+              {block:IndexPage}
             </div>
-            {block:IndexPage}
-          </div>
           {/block:Audio}
 
           {block:Video}
-          <div class="post">
-            {block:IndexPage}
-            {Video-500}
-            <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
+            <div class="post">
+              {block:IndexPage}
+              {Video-500}
+                <div class="permalink">
+                  <a href="{Permalink}">{NoteCount}</a> /
+                  <a href="{Permalink}">{TimeAgo}</a>
+                </div>
+              {/block:IndexPage}
+              {block:PermalinkPage}
+              {Video-400}
+              {/block:PermalinkPage}
             </div>
-            {/block:IndexPage}
-            {block:PermalinkPage}
-            {Video-400}
-            {/block:PermalinkPage}
-          </div>
           {/block:Video}
 
           {block:Answer}
-          <div class="post answer">
-            <div class="question">
-              <p class="asker">
-                <span class="user-name">{Asker}</span>{block:English} said{/block:English}: {Question}
-              </p>
-            </div>
-            {block:Answerer}
-            <div class="answer">
-              {Answer}
-            </div>
-            {/block:Answerer}
-            <div class="replies">
-              {Replies}
-            </div>
-            <div class="permalink">
+            <div class="post answer">
+              <div class="question">
+                <p class="asker">
+                  <span class="user-name">{Asker}</span>{block:English} said{/block:English}: {Question}
+                </p>
+              </div>
+              {block:Answerer}
+              <div class="answer">
+                {Answer}
+              </div>
+              {/block:Answerer}
+              <div class="replies">
+                {Replies}
+              </div>
+              <div class="permalink">
                 <a href="{Permalink}">{NoteCount}</a> /
                 <a href="{Permalink}">{TimeAgo}</a>
+              </div>
             </div>
-          </div>
           {/block:Answer}
-         </div>
 
           {block:PermalinkPage}
-              <div class="notes">
-              <p>{block:Date}
-                {Caption} posted {TimeAgo}
-              {/block:Date}
+            <div class="notes">
+              <p>
+                {block:Date}
+                  {Caption} posted {TimeAgo}
+                {/block:Date}
 
-              {block:NoteCount}
-                with {NoteCount} notes
-              {/block:NoteCount}
+                {block:NoteCount}
+                  with {NoteCount} notes
+                {/block:NoteCount}
 
-              {block:RebloggedFrom}
-              via <a href="{ReblogParentURL}">{ReblogParentName}</a>,
-              {/block:RebloggedFrom}
+                {block:RebloggedFrom}
+                via <a href="{ReblogParentURL}">{ReblogParentName}</a>,
+                {/block:RebloggedFrom}
 
-              {block:ContentSource}
-              originally from <a href="{SourceURL}">{SourceTitle}</a>
-              {/block:ContentSource}</p>
-
-              <br>
+                {block:ContentSource}
+                originally from <a href="{SourceURL}">{SourceTitle}</a>
+                {/block:ContentSource}
+              </p>
               {block:hastags}
                 {block:tags}
-                #<a href="/tagged/{Tag}">{Tag}</a> &nbsp;&nbsp;
+                  #<a href="/tagged/{Tag}">{Tag}</a> &nbsp;&nbsp;
                 {/block:tags}
               {/block:hastags}
-              <br><br>
               {PostNotes}
-              </div>
+            </div>
           {/block:PermalinkPage}
 
-
-
         </article>
-        {/block:Posts}
-      </main>
+      {/block:Posts}
+    </main>
 
     <script src="//static.tumblr.com/xeccbfq/Qgqnv9yqb/jquery.min.js"></script>
     <script src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
 
     <script>
+      {block:IndexPage}
+        function fixAnswers() {
+         $(".answer img").each(function (i, el) {
+            var $el = $(el);
+
+            if ($el.attr("data-orig-height")) {
+              $el.removeAttr("height");
+            }
+          });
+        }
+
         $(function() {
             $('main').masonry({
                 itemSelector:'.post',
                 columWidth:200,
             });
+
+            fixAnswers();
         });
+
+        $(function () {
+          fixAnswers();
+        });
+      {block:IndexPage}
     </script>
 
   </body>
