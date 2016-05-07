@@ -14,14 +14,16 @@ MOONLIGHT THEME
 
     {block:Hidden}
     <meta name="color:Background" content="#ffffff">
+    <meta name="font:Body Font" content="Courier New">
     <meta name="color:Title" content="#000000">
-    <meta name="font:Title Font" content="courier">
+    <meta name="font:Title Font" content="Courier New">
     <meta name="color:Description" content="#000000">
+    <meta name="color:Sidebar Background Color" content="#ffffff">
+    <meta name="color:Sidebar Border Color" content="#000000">
     <meta name="color:Navigation Links" content="#000000">
     <meta name="color:Navigation Links Background" content="#f0f5f5">
     <meta name="color:Navigation Links Hover" content="#000000">
     <meta name="color:Nav Links Background Hover" content="#ffffff">
-    <meta name="font:Body Font" content="Courier New">
     <meta name="color:Footer" content="#000000">
     {/block:Hidden}
 
@@ -64,6 +66,11 @@ MOONLIGHT THEME
 
     a, .contentinfo a {
       color:{color:Footer};
+    }
+
+    .sidebar {
+        background-color:{color:Sidebar Background Color};
+        border:1px solid {color:Sidebar Border Color};
     }
 
   /* my CSS */
@@ -146,16 +153,31 @@ MOONLIGHT THEME
    {/block:PermalinkPage}
  }
 
+ .chat-title {
+     font-weight:bold;
+ }
+
+ .chat-lines {
+     list-style-type: none;
+     padding:0;
+     margin:0;
+ }
+
+ .quote {
+     font-size:16px;
+     text-align:center;
+ }
+
+ .caption {
+     text-align:center;
+ }
+
  .permalink {
   margin-top:11px;
-  text-align:left;
+  text-align:right;
   {block:PermalinkPage}
   opacity:0;
   {/block:PermalinkPage}
- }
-
- .permalink a:hover, .pagination a:hover {
-     color:white;
  }
 
  .notes {
@@ -164,10 +186,11 @@ MOONLIGHT THEME
 
   .sidebar {
     position:fixed;
-    top:100px;
-    margin-left:20px;
+    margin-top:60px;
+    margin-left:60px;
     width: 150px;
     float:left;
+    padding:2px 5px 5px 5px;
   }
 
   main {
@@ -177,7 +200,7 @@ MOONLIGHT THEME
       left:50%;
       {block:IndexPage}
       width:834px;
-      margin-left:-417px;
+      margin-left:-360px;
       {/block:IndexPage}
       {block:PermalinkPage}
       margin-left:-200px;
@@ -192,16 +215,18 @@ MOONLIGHT THEME
     {block:indexpage}
     width:200px;
     margin:30px;
-    padding:8px 8px 6px 8px;
+    padding:8px;
     border:1px solid white;
     {/block:indexpage}
     {block:permalinkpage}
     width:400px;
+    margin-top:5px;
     {/block:permalinkpage}
     float:left;
     position:relative;
     text-align:left;
     overflow:hidden;
+    background-color:white;
   }
 
   .post img{
@@ -209,22 +234,27 @@ MOONLIGHT THEME
   }
 
   .blog-title {
-    font-size:18px;
+    font-size:16px;
     text-transform:uppercase;
+    text-align:center;
   }
 
-  .nav-wrapper ul{
-    list-style-type: none;
-    margin: 0px;
-    padding: 0px;
+  .nav-wrapper {
+    text-align:center;
+    font-weight:bold;
   }
 
   .pagination {
       font-size:25px;
+      text-align:center;
   }
 
   a {
     text-decoration: none;
+  }
+
+  .nav-wrapper nav a {
+    text-transform: lowercase;
   }
 
   .answer figure {
@@ -240,17 +270,13 @@ MOONLIGHT THEME
       <div class="meta-wrapper">
 
         <div class="blog-details">
-          {block:ShowTitle}
             <h1 class="blog-title">
               <p><a href="/" title="{lang:Home}">{Title}</a><p>
             </h1>
-          {/block:ShowTitle}
 
-          {block:ShowDescription}
             {block:Description}
               <p class="blog-description">{Description}</p>
             {block:Description}
-          {/block:ShowDescription}
         </div>
       </div>
 
@@ -271,7 +297,7 @@ MOONLIGHT THEME
         </nav>
       </div>
 
-    <br><br>
+    <br>
 
       {block:Pagination}
         <nav class="pagination">
@@ -292,8 +318,7 @@ MOONLIGHT THEME
             {/block:Title}
             {Body}
               <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
+                <a href="{Permalink}">{NoteCount} notes</a>
               </div>
             </div>
           {/block:Text}
@@ -303,8 +328,7 @@ MOONLIGHT THEME
               {block:IndexPage}
                 {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
                 <div class="permalink">
-                  <a href="{Permalink}">{NoteCount}</a> /
-                  <a href="{Permalink}">{TimeAgo}</a>
+                  <a href="{Permalink}">{NoteCount} notes</a>
                 </div>
               {/block:IndexPage}
               {block:PermalinkPage}
@@ -318,8 +342,7 @@ MOONLIGHT THEME
               {block:IndexPage}
                 {Photoset}
                 <div class="permalink">
-                  <a href="{Permalink}">{NoteCount}</a> /
-                  <a href="{Permalink}">{TimeAgo}</a>
+                  <a href="{Permalink}">{NoteCount} notes</a>
                 </div>
               {/block:IndexPage}
               {block:PermalinkPage}
@@ -332,15 +355,12 @@ MOONLIGHT THEME
           {block:Quote}
             <div class="post">
               {block:IndexPage}
-                <blockquote><i>{Quote}</i></blockquote>
+                <p class="quote"><i>{Quote}</i></p>
                 {block:Source}
-                <cite class="caption">
-                — {Source}
-                </cite>
+                <cite class="caption">— {Source}</cite>
                 {/block:Source}
                 <div class="permalink">
-                  <a href="{Permalink}">{NoteCount}</a> /
-                  <a href="{Permalink}">{TimeAgo}</a>
+                  <a href="{Permalink}">{NoteCount} notes</a>
                 </div>
               {block:IndexPage}
             </div>
@@ -355,14 +375,14 @@ MOONLIGHT THEME
                 </div>
               {/block:Description}
               <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
+                <a href="{Permalink}">{NoteCount} notes</a>
               </div>
             </div>
           {/block:Link}
 
           {block:Chat}
             <div class="post">
+              <p class="chat-title">{block:Title}{Title}{block:Title}</p>
               <ul class="chat-lines">
                 {block:Lines}
                   <li>
@@ -371,8 +391,7 @@ MOONLIGHT THEME
                 {/block:Lines}
               </ul>
               <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
+                <a href="{Permalink}">{NoteCount} notes</a>
               </div>
             </div>
           {/block:Chat}
@@ -407,8 +426,7 @@ MOONLIGHT THEME
               </div>
               {block:IndexPage}
                 <div class="permalink">
-                  <a href="{Permalink}">{NoteCount}</a> /
-                  <a href="{Permalink}">{TimeAgo}</a>
+                  <a href="{Permalink}">{NoteCount} notes</a>
                 </div>
               {block:IndexPage}
             </div>
@@ -419,8 +437,7 @@ MOONLIGHT THEME
               {block:IndexPage}
               {Video-500}
                 <div class="permalink">
-                  <a href="{Permalink}">{NoteCount}</a> /
-                  <a href="{Permalink}">{TimeAgo}</a>
+                  <a href="{Permalink}">{NoteCount} notes</a>
                 </div>
               {/block:IndexPage}
               {block:PermalinkPage}
@@ -445,8 +462,7 @@ MOONLIGHT THEME
                 {Replies}
               </div>
               <div class="permalink">
-                <a href="{Permalink}">{NoteCount}</a> /
-                <a href="{Permalink}">{TimeAgo}</a>
+                <a href="{Permalink}">{NoteCount} notes</a>
               </div>
             </div>
           {/block:Answer}
@@ -454,12 +470,8 @@ MOONLIGHT THEME
           {block:PermalinkPage}
             <div class="notes">
               <p>
-                {block:Date}
-                  {Caption} posted {TimeAgo}
-                {/block:Date}
-
                 {block:NoteCount}
-                  with {NoteCount} notes
+                  {NoteCount} notes
                 {/block:NoteCount}
 
                 {block:RebloggedFrom}
@@ -467,7 +479,7 @@ MOONLIGHT THEME
                 {/block:RebloggedFrom}
 
                 {block:ContentSource}
-                originally from <a href="{SourceURL}">{SourceTitle}</a>
+                source <a href="{SourceURL}">{SourceTitle}</a>
                 {/block:ContentSource}
               </p>
               {block:hastags}
