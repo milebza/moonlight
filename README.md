@@ -1,6 +1,33 @@
-##Theme #1 moonlight
+##Theme moonlight v.1
 
-####~ theme not finished yet! ~
+####Preview
+![alt tag](https://raw.githubusercontent.com/milebza/moonlight/master/assets/theme-preview1.jpg)
+* * * *
+![alt tag](https://raw.githubusercontent.com/milebza/moonlight/master/assets/theme-preview2.jpg)
+
+####Features
+
+	* 3 columns
+	* Sidebar on left
+	* Note count on each post
+	* Custom blog font
+	* Custom title font
+	* Custom title color
+	* Custom description color
+	* Custom background blog color
+	* Custom background sidebar color
+	* Custom sidebar border color
+	* Custom navigation links color
+	* Custom navigation links hover color
+	* Custom navigation links background color
+	* Custom navigation links background hover color
+	* Custom post footer color
+
+####TO DO List
+
+	* Load the images before aplying masonry
+	* Add infinit scroll feature
+	* Stylize scroll bar
 
 ####Theme for tumblr 
 Languages used:
