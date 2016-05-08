@@ -1,4 +1,4 @@
-##Theme moonlight v.1
+##Theme moonlight v.0
 
 ####Preview
 ![alt tag](https://raw.githubusercontent.com/milebza/moonlight/master/assets/theme-preview1.jpg)
