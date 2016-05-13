@@ -34,6 +34,7 @@ BY AZURIH (azurih.tumblr.com)
     <meta name="if:Blog Border Bottom" content="1"/>
     <meta name="if:Blog Border Left" content="1"/>
 
+    <meta name="if:Sidebar Background" content="0"/>
     <meta name="if:Sidebar Border Top" content="0"/>
     <meta name="if:Sidebar Border Right" content="0"/>
     <meta name="if:Sidebar Border Bottom" content="0"/>
@@ -148,7 +149,9 @@ BY AZURIH (azurih.tumblr.com)
     padding:2px 10px 5px 10px;
     text-align: justify;
     text-justify: inter-word;
+    {block:ifSidebarBackground}
     background-color:{color:Sidebar Background Color};
+    {/block:ifSidebarBackground}
     {block:ifSidebarBorderTop}
     border-top: 4px solid {color:Sidebar Border Color};
     {/block:ifSidebarBorderTop}
