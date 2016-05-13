@@ -42,6 +42,8 @@ BY AZURIH (azurih.tumblr.com)
 
     <meta name="if:Post Border" content="0">
     <meta name="if:Post Background" content="0"/>
+
+    <meta name="if:Infinite Scroll" content="0";
     {/block:Hidden}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,8 +57,13 @@ BY AZURIH (azurih.tumblr.com)
     {CustomCSS}
   /* my CSS and Tumblr Customizable elements */
 
-  /*TODO: load images before masonry*/
-  /*TODO: fix infinit scroll option*/
+  /*
+
+    TODO: load images before masonry
+    TODO: fix infinit scroll option
+    TODO: change .test class name!!!!!!
+
+  */
 
     /* Global */
   body {
@@ -186,7 +193,7 @@ BY AZURIH (azurih.tumblr.com)
     padding-right:2px;
     text-align:center;
     line-height: 150%;
-    font-weight:bold;
+    /*font-weight:bold;*/
     text-transform: lowercase;
   }
 
@@ -197,7 +204,15 @@ BY AZURIH (azurih.tumblr.com)
 
     /* Next and previous page */
   .pagination {
-      text-align:center;
+      text-align:right;
+  }
+
+  .test {
+      position:fixed;
+      margin-top:580px;
+      margin-left:80px;
+      width: 150px;
+      float:left;
   }
 
     /* Area where the posts will be */
@@ -256,16 +271,15 @@ BY AZURIH (azurih.tumblr.com)
   {/block:PermalinkPage}
  }
 
-    /* Permalink page */
- .notes {
-     /*line-height: 110%;*/
- }
-
    /* POST TYPES */
     /* Text post */
    .text-title {
      font-size:12px;
  }
+
+ .text figure {
+      margin: 5px 0 !important;
+  }
 
     /* Quote post */
  .quote, .source {
@@ -413,19 +427,19 @@ BY AZURIH (azurih.tumblr.com)
                 <a href="/archive">archive</a>&nbsp;&nbsp;&nbsp;
                 <!-- Submission -->
             {block:SubmissionsEnabled}
-                <a href="/submit">submit</a>
+                <a href="/submit">submit</a>&nbsp;&nbsp;&nbsp;
             {/block:SubmissionsEnabled}
                 <!-- Theme (Do not remove!!!) -->
                 <a href="http://azurih.tumblr.com/">theme</a>
         </nav>
       </div>
+    </div>
 
-    <br>
-
-      <!-- Next page and previous page -->
+    <div class="test">
+        <!-- Next page and previous page -->
       {block:Pagination}
         <nav class="pagination">
-          {block:PreviousPage}<a href="{PreviousPage}">prev</a>&nbsp;&nbsp;{/block:PreviousPage}{block:NextPage}<a href="{NextPage}" class="next-page">next</a>{/block:NextPage}
+          {block:PreviousPage}<a href="{PreviousPage}">prev</a>{/block:PreviousPage}<br>{block:NextPage}<a href="{NextPage}" class="next-page">next</a>{/block:NextPage}
         </nav>
       {/block:Pagination}
     </div>
@@ -437,7 +451,7 @@ BY AZURIH (azurih.tumblr.com)
 
           <!-- TEXT POST -->
           {block:Text}
-            <div class="post">
+            <div class="post text">
             {block:Title}
               <h2 class="text-title">
                 <a href="{Permalink}">{Title}</a>
@@ -689,14 +703,14 @@ BY AZURIH (azurih.tumblr.com)
 
     <script src="//static.tumblr.com/xeccbfq/Qgqnv9yqb/jquery.min.js"></script>
     <script src="jquery.style-my-tooltips.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.1.0/jquery.infinitescroll.min.js"></script>
+    {block:ifInfiniteScroll}<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.1.0/jquery.infinitescroll.min.js"></script>{/block:ifInfiniteScroll}
     <script src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
 
     <script>
       {block:IndexPage}
-        // function that fixes image height in answers
-        function fixAnswers() {
-         $(".answer img").each(function (i, el) {
+        // function that fixes image height added in answers and texts post
+        function fixAddedImage() {
+         $(".answer img, .text img").each(function (i, el) {
             var $el = $(el);
 
             if ($el.attr("data-orig-height")) {
@@ -706,6 +720,7 @@ BY AZURIH (azurih.tumblr.com)
         }
 
         // prevent any jQuery code from running before the document finishes loading
+        {block:ifInfiniteScroll}
         $(function() {
 
             var $content = $('main');
@@ -732,13 +747,25 @@ BY AZURIH (azurih.tumblr.com)
                     appendedContent:$(this)
                 });
 
-                fixAnswers();
+                fixAddedImage();
             });
+        });
+        {/block:ifInfiniteScroll}
+
+        $(function () {
+            var $content = $('main');
+
+            $content.masonry({
+                itemSelector:'.post',
+                columWidth:200,
+            });
+
+            fixAddedImage();
         });
 
 
         $(function () {
-          fixAnswers();
+          fixAddedImage();
         });
       {block:IndexPage}
     </script>
