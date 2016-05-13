@@ -1,25 +1,36 @@
 ##Theme moonlight v.0
 
 ####Preview
-_Need to update preview images_
+_Preview images coming soon!_
 
 ####Features
 
 	* 3 columns
 	* Sidebar on left
 	* Note count on each post
-	* Custom title color
-	* Custom background blog color
-	* Custom background sidebar color
-	* Enable/disable border and background color
-	* Custom sidebar border and background color
-	* Custom scrollbar color
-	* No limited number of links
+	* Custom title color and background
+	* Custom blog background and border color
+	* Custom tiled background image
+	* Custom sidebar background and border color
+	* Custom post background and border color
+	* Custom scrollbar color and scrollbar background color
+	* Enable/disable blog border (one toggle for each side)
+	* Enable/disable sidebar background color
+	* Enable/disable sidebar border (one toggle for each side)
+	* Enable/disable post background color
+	* Enable/disable post border
+	* No limited number of links!
+	* Custom text for message and notes
+
+####Download
+To try the theme just copy [this](https://github.com/milebza/moonlight/blob/master/my-theme.html) code and go to your blog >> Edit theme >> Edit HTML >> delete the current code and paste this new one!
 
 ####TO DO List
 
 	* Load the images before aplying masonry
-	* Fix infinit scroll feature
+	* Fix infinite scroll
+	* Add option to show/hide blog title
+	* Add option for a profile picture
 
 ####Theme for tumblr 
 Languages used:
