@@ -1,7 +1,11 @@
 ##Theme moonlight v.0
 
 ####Preview
-_Preview images coming soon!_
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/screen1.jpg)
+***
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/screen2.jpg)
+***
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/screen3.jpg)
 
 ####Features
 
@@ -9,28 +13,25 @@ _Preview images coming soon!_
 	* Sidebar on left
 	* Note count on each post
 	* Custom title color and background
+	* Show/hide title
+	* Enable/disable title background
 	* Custom blog background and border color
+	* Show/hide blog borders (one toggle for each side)
 	* Custom tiled background image
 	* Custom sidebar background and border color
-	* Custom post background and border color
-	* Custom scrollbar color and scrollbar background color
-	* Enable/disable blog border (one toggle for each side)
 	* Enable/disable sidebar background color
-	* Enable/disable sidebar border (one toggle for each side)
+	* Show/hide sidebar borders (one toggle for each side)
+	* Description alignment (left, right or center)
+	* Custom post background and border color
 	* Enable/disable post background color
-	* Enable/disable post border
+	* Show/hide post borders
+	* Custom scrollbar color and background color
 	* No limited number of links!
 	* Custom text for message and notes
+	* Enable/disable inifinite scroll
 
 ####Download
-To try the theme just copy [this](https://github.com/milebza/moonlight/blob/master/my-theme.html) code and go to your blog >> Edit theme >> Edit HTML >> delete the current code and paste this new one!
-
-####TO DO List
-
-	* Load the images before aplying masonry
-	* Fix infinite scroll
-	* Add option to show/hide blog title
-	* Add option for a profile picture
+To try the theme click [here](https://github.com/milebza/moonlight/blob/master/my-theme.html), click in RAW, copy all that code and go to your blog >> Edit theme >> Edit HTML >> delete the current code and paste the new one!
 
 ####Theme for tumblr 
 Languages used:
