@@ -3,6 +3,7 @@
 
 MOONLIGHT THEME
 BY AZURIH
+azurih.tumblr.com
 
 -->
 <html>
@@ -22,27 +23,34 @@ BY AZURIH
     <meta name="color:Sidebar Border Color" content="#000000">
     <meta name="color:Scrollbar Color" content="#000000">
     <meta name="color:Scrollbar Background Color" content="#ffffff">
-    <meta name="image:Tiled Background" content="">
     <meta name="color:Post Border Color" content="#ffffff">
     <meta name="color:Post Background Color" content="#ffffff">
-    <meta name="text:Ask" content="message"/>
-    <meta name="text:Footer" content="notes"/>
+    <meta name="image:Tiled Background" content="">
+    <meta name="text:Ask" content="message">
+    <meta name="text:Footer" content="notes">
 
-    <meta name="if:Blog Border Top" content="1"/>
-    <meta name="if:Blog Border Right" content="1"/>
-    <meta name="if:Blog Border Bottom" content="1"/>
-    <meta name="if:Blog Border Left" content="1"/>
+    <meta name="if:Title" content="0">
+    <meta name="if:Title Background" content="1">
 
-    <meta name="if:Sidebar Background" content="0"/>
-    <meta name="if:Sidebar Border Top" content="0"/>
-    <meta name="if:Sidebar Border Right" content="0"/>
-    <meta name="if:Sidebar Border Bottom" content="0"/>
-    <meta name="if:Sidebar Border Left" content="0"/>
+    <meta name="if:Navigation Links Center" content="0">
+    <meta name="if:Navigation Links Right" content="1">
+    <meta name="if:Navigation Links Left" content="1">
+
+    <meta name="if:Blog Border Top" content="1">
+    <meta name="if:Blog Border Right" content="1">
+    <meta name="if:Blog Border Bottom" content="1">
+    <meta name="if:Blog Border Left" content="1">
+
+    <meta name="if:Sidebar Background" content="0">
+    <meta name="if:Sidebar Border Top" content="0">
+    <meta name="if:Sidebar Border Right" content="0">
+    <meta name="if:Sidebar Border Bottom" content="0">
+    <meta name="if:Sidebar Border Left" content="0">
 
     <meta name="if:Post Border" content="0">
-    <meta name="if:Post Background" content="0"/>
+    <meta name="if:Post Background" content="0">
 
-    <meta name="if:Infinite Scroll" content="0";
+    <meta name="if:Infinite Scroll" content="0">
     {/block:Hidden}
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,15 +64,18 @@ BY AZURIH
     {CustomCSS}
   /* my CSS and Tumblr Customizable elements */
 
-  /*
+    /* Savvior 3 columns */
+    .column {
+        float: left;
+    }
+    .size-1of2 {
+        width: 50%;
+    }
+    .size-1of3 {
+        width: 33.33333%;
+    }
 
-    TODO: load images before masonry
-    TODO: fix infinit scroll option
-    TODO: change .test class name!!!!!!
 
-  */
-
-    /* Global */
   body {
     font-size: 12px;
     font-family:Arial;
@@ -96,7 +107,7 @@ BY AZURIH
     height:6px;
   }
 
-  /* Blog borders*/
+  /* Blog borders */
   #top, #right, #bottom, #left {
       background-color:{color:Blog Border Color};
   }
@@ -152,9 +163,8 @@ BY AZURIH
     margin-left:80px;
     width: 150px;
     float:left;
-    padding:2px 10px 5px 10px;
+    padding:5px 10px 10px 10px;
     text-align: justify;
-    text-justify: inter-word;
     {block:ifSidebarBackground}
     background-color:{color:Sidebar Background Color};
     {/block:ifSidebarBackground}
@@ -177,23 +187,36 @@ BY AZURIH
     font-size:14px;
     text-transform:uppercase;
     text-align:center;
+    {block:ifNotTitle}
+    display:none;
+    {/block:ifNotTitle}
   }
 
   .blog-title a {
       color:{color:Title};
       font-style:normal;
+      {block:ifTitleBackground}
       background-color:{color:Title Background Color};
+      {/block:ifTitleBackground}
       padding:4px;
     }
 
-    /* Navigation links */
+   /* Navigation links */
   .nav-wrapper {
     padding-left:2px;
     padding-right:2px;
+    {block:ifNavigationLinksRight}
+    text-align:right;
+    {/block:ifNavigationLinksRight}
+    {block:ifNavigationLinksLeft}
+    text-align:left;
+    {/block:ifNavigationLinksLeft}
+    {block:ifNavigationLinksCenter}
     text-align:center;
+    {/block:ifNavigationLinksCenter}
     line-height: 150%;
-    /*font-weight:bold;*/
     text-transform: lowercase;
+    word-spacing:10px;
   }
 
   .nav-wrapper nav a:hover {
@@ -201,54 +224,53 @@ BY AZURIH
       font-style:normal;
     }
 
-    /* Next and previous page */
+   /* Next and previous page */
   .pagination {
       text-align:right;
   }
 
-  .test {
+  .page-navigation {
       position:fixed;
       margin-top:580px;
       margin-left:80px;
       width: 150px;
       float:left;
+      {block:ifInfiniteScroll}
+      display:none;
+      {/block:ifInfiniteScroll}
   }
 
-    /* Area where the posts will be */
+  /* Area where the posts will be */
   main {
       position:absolute;
       float:left;
       margin-top:20px;
       left:50%;
       {block:IndexPage}
-      width:840px; /*834*/
+      width:900px; /*840px*/
       margin-left:-360px;
       {/block:IndexPage}
       {block:PermalinkPage}
       margin-left:-200px;
       width:400px;
-      padding:10px;
-      /*margin-top:40px;*/
+      padding-top:30px;
       margin-bottom:25px;
       {/block:PermalinkPage}
   }
 
-    /* A post */
+   /* A post */
   .post {
     {block:indexpage}
-    width:200px;
-    margin:30px;
+    width:210px;
+    margin:35px;
     {/block:indexpage}
     {block:permalinkpage}
     width:400px;
-    margin-top:5px;
     {/block:permalinkpage}
     padding:8px 8px 8px 8px;
     {block:ifPostBorder}
     border:2px solid {color:Post Border Color};
     {/block:ifPostBorder}
-    float:left;
-    position:relative;
     text-align:left;
     overflow:hidden;
     {block:ifPostBackground}
@@ -256,12 +278,12 @@ BY AZURIH
     {/block:ifPostBackground}
   }
 
-    /* When a post has an image */
-  .post img{
+  /* When a post has an image */
+  .post img {
       max-width:100%;
   }
 
-      /* Post footer information */
+ /* Post footer information */
  .footer {
   margin-top:5px;
   text-align:right;
@@ -276,6 +298,11 @@ BY AZURIH
      font-size:12px;
  }
 
+ .text-title a:hover {
+     font-style:normal;
+ }
+
+ /* Text with image correction size */
  .text figure {
       margin: 5px 0 !important;
   }
@@ -412,21 +439,25 @@ BY AZURIH
       <!-- Navigation links -->
       <div class="nav-wrapper">
         <nav>
+                <!-- Home -->
+                {block:ifNotTitle}
+                <a href="/">home</a>
+                {/block:ifNotTitle}
                 <!-- Links -->
             {block:HasPages}
               {block:Pages}
-                  <a href="{URL}">{Label}</a>&nbsp;&nbsp;&nbsp;
+                  <a href="{URL}">{Label}</a>
               {/block:Pages}
             {/block:HasPages}
                 <!-- Ask box -->
             {block:AskEnabled}
-                <a href="/ask">{text:Ask}</a>&nbsp;&nbsp;&nbsp;
+                <a href="/ask">{text:Ask}</a>
             {/block:AskEnabled}
                 <!-- Archive -->
-                <a href="/archive">archive</a>&nbsp;&nbsp;&nbsp;
+                <a href="/archive">archive</a>
                 <!-- Submission -->
             {block:SubmissionsEnabled}
-                <a href="/submit">submit</a>&nbsp;&nbsp;&nbsp;
+                <a href="/submit">submit</a>
             {/block:SubmissionsEnabled}
                 <!-- Theme (Do not remove!!!) -->
                 <a href="http://azurih.tumblr.com/">theme</a>
@@ -434,8 +465,8 @@ BY AZURIH
       </div>
     </div>
 
-    <div class="test">
-        <!-- Next page and previous page -->
+    <!-- Next page and previous page -->
+    <div class="page-navigation">
       {block:Pagination}
         <nav class="pagination">
           {block:PreviousPage}<a href="{PreviousPage}">prev</a>{/block:PreviousPage}<br>{block:NextPage}<a href="{NextPage}" class="next-page">next</a>{/block:NextPage}
@@ -446,8 +477,7 @@ BY AZURIH
     <!-- CONTENT -->
     <main role="main">
       {block:Posts}
-        <article>
-
+      <article>
           <!-- TEXT POST -->
           {block:Text}
             <div class="post text">
@@ -523,6 +553,10 @@ BY AZURIH
                 </div>
               {block:IndexPage}
               {block:PermalinkPage}
+                <p class="quote">"{Quote}"</p>
+                {block:Source}
+                <p class="source">~ {Source}</p>
+                {/block:Source}
                 {block:Caption}
                 <div class="caption">
 	                {Caption}
@@ -695,18 +729,15 @@ BY AZURIH
               {PostNotes}
             </div>
           {/block:PermalinkPage}
-
         </article>
       {/block:Posts}
     </main>
 
     <script src="//static.tumblr.com/xeccbfq/Qgqnv9yqb/jquery.min.js"></script>
-    <script src="jquery.style-my-tooltips.js"></script>
-    {block:ifInfiniteScroll}<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/2.1.0/jquery.infinitescroll.min.js"></script>{/block:ifInfiniteScroll}
-    <script src="http://masonry.desandro.com/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js"></script>
+    <script src="http://static.tumblr.com/biqa6bt/rJRo76dnm/savvior_hack.js"></script>
 
     <script>
-      {block:IndexPage}
         // function that fixes image height added in answers and texts post
         function fixAddedImage() {
          $(".answer img, .text img").each(function (i, el) {
@@ -718,55 +749,63 @@ BY AZURIH
           });
         }
 
+        {block:IndexPage}
         // prevent any jQuery code from running before the document finishes loading
-        {block:ifInfiniteScroll}
         $(function() {
+            {block:ifInfiniteScroll}
 
-            var $content = $('main');
+            //Infinite scrolling by Filipe Dobreira
+              function setupInfiniteScroll (fn) {
+              var postClass = ".post";
+              var nextPageElementClass = ".next-page";
+              var nextPageUrl = $(nextPageElementClass).attr("href");
+              var loadLock = false;
 
-            $content.masonry({
-                itemSelector:'.post',
-                columWidth:200,
-            });
+              var loadNewPage = function (fn) {
+                // Don't do anything if already busy:
+                if (loadLock) return false;
+                loadLock = true;
 
-            $content.infinitescroll({
-                // selector for the paged navigation (it will be hidden)
-                navSelector:".pagination",
+                var $scratch = $(document.createElement("div"));
 
-                // selector for the next page (to page 2)
-                nextSelector:".next-page",
+                $scratch.load(nextPageUrl, function (data) {
+                  var $parent = $(data);
+                  nextPageUrl = $parent.find(nextPageElementClass).attr("href");
 
-                // selector for all items to be retrieved
-                itemSelector:".post",
-            },
+                  fn($parent.find(postClass).get());
 
-            // masonry as a callback
-            function() {
-                $content.masonry({
-                    appendedContent:$(this)
+                  loadLock = false;
                 });
+              };
 
-                fixAddedImage();
+
+              $(window).scroll(function() {
+                if($(window).scrollTop() + $(window).height() == $(document).height()) {
+                  loadNewPage(fn);
+                }
+              });
+            }
+
+            setupInfiniteScroll(function (elems) {
+                savvior.addItems("main", elems, {
+                    method: 'append',
+                    clone: false
+                }, fixAddedImage);
             });
-        });
-        {/block:ifInfiniteScroll}
+            {/block:ifInfiniteScroll}
 
-        $(function () {
-            var $content = $('main');
-
-            $content.masonry({
-                itemSelector:'.post',
-                columWidth:200,
+            savvior.init('main', {
+                "screen": { columns: 3 }
             });
 
             fixAddedImage();
         });
-
-
-        $(function () {
-          fixAddedImage();
-        });
       {block:IndexPage}
+      {block:PermalinkPage}
+      $(function() {
+          fixAddedImage();
+      });
+      {/block:PermalinkPage}
     </script>
 
   </body>
