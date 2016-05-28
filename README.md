@@ -1,33 +1,30 @@
 ##Theme moonlight v.0
 
 ####Preview
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/screen1.jpg)
+	Index page: (2nd image showing post hover in first post)
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index.jpg)
 ***
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/screen2.jpg)
-***
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/screen3.jpg)
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index_hover.jpg)
+	Permalink page:
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_permalink.jpg)
 
 ####Features
 
 	* 3 columns
 	* Sidebar on left
-	* Note count on each post
+	* Note count and Reblog button on post hover
 	* Custom title color and background
-	* Show/hide title
-	* Enable/disable title background
+ 		* Show/hide title
+		* Enable/disable title background
 	* Custom blog background and border color
-	* Show/hide blog borders (one toggle for each side)
+		* Show/hide blog borders (one toggle for each side)
 	* Custom tiled background image
-	* Custom sidebar background and border color
-	* Enable/disable sidebar background color
-	* Show/hide sidebar borders (one toggle for each side)
-	* Description alignment (left, right or center)
-	* Custom post background and border color
-	* Enable/disable post background color
-	* Show/hide post borders
+	* Custom sidebar background color
+		* Enable/disable sidebar background color
+	* Sidebar text alignment (left, right or center)
 	* Custom scrollbar color and background color
 	* No limited number of links!
-	* Custom text for message and notes
+	* Custom text for message
 	* Enable/disable inifinite scroll
 
 ####Download
