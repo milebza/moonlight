@@ -1,11 +1,16 @@
 <!doctype html>
+
 <!--
 
-MOONLIGHT THEME
-BY AZURIH
-azurih.tumblr.com
+    MOONLIGHT THEME
+    BY AZURIH
+
+    may 2016
+
+    azurih.tumblr.com
 
 -->
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -20,21 +25,17 @@ azurih.tumblr.com
     <meta name="color:Title" content="#000000">
     <meta name="color:Title Background Color" content="#ffffff">
     <meta name="color:Sidebar Background Color" content="#ffffff">
-    <meta name="color:Sidebar Border Color" content="#000000">
     <meta name="color:Scrollbar Color" content="#000000">
     <meta name="color:Scrollbar Background Color" content="#ffffff">
-    <meta name="color:Post Border Color" content="#ffffff">
-    <meta name="color:Post Background Color" content="#ffffff">
     <meta name="image:Tiled Background" content="">
     <meta name="text:Ask" content="message">
-    <meta name="text:Footer" content="notes">
 
     <meta name="if:Title" content="0">
     <meta name="if:Title Background" content="1">
 
-    <meta name="if:Navigation Links Center" content="0">
-    <meta name="if:Navigation Links Right" content="1">
-    <meta name="if:Navigation Links Left" content="1">
+    <meta name="if:Sidebar Text Center" content="0">
+    <meta name="if:Sidebar Text Right" content="1">
+    <meta name="if:Sidebar Text Left" content="1">
 
     <meta name="if:Blog Border Top" content="1">
     <meta name="if:Blog Border Right" content="1">
@@ -42,13 +43,6 @@ azurih.tumblr.com
     <meta name="if:Blog Border Left" content="1">
 
     <meta name="if:Sidebar Background" content="0">
-    <meta name="if:Sidebar Border Top" content="0">
-    <meta name="if:Sidebar Border Right" content="0">
-    <meta name="if:Sidebar Border Bottom" content="0">
-    <meta name="if:Sidebar Border Left" content="0">
-
-    <meta name="if:Post Border" content="0">
-    <meta name="if:Post Background" content="0">
 
     <meta name="if:Infinite Scroll" content="0">
     {/block:Hidden}
@@ -96,15 +90,15 @@ azurih.tumblr.com
 
   /* Scrollbar */
   ::-webkit-scrollbar {
-    height:16px;
-    width:16px;
+    height:6px;
+    width:6px;
     background-color:{color:Scrollbar Background Color};
   }
 
   ::-webkit-scrollbar-thumb{
     background-color:{color:Scrollbar Color};
-    border:6px solid {color:Scrollbar Background Color};
-    height:6px;
+    border:1px solid {color:Scrollbar Background Color};
+    height:1px;
   }
 
   /* Blog borders */
@@ -159,34 +153,29 @@ azurih.tumblr.com
     /* Sidebar */
     .sidebar {
     position:fixed;
-    margin-top:130px;
+    margin-top:50px;
     margin-left:80px;
     width: 150px;
     float:left;
-    padding:5px 10px 10px 10px;
-    text-align: justify;
+    padding:10px 15px 10px 15px;
     {block:ifSidebarBackground}
     background-color:{color:Sidebar Background Color};
     {/block:ifSidebarBackground}
-    {block:ifSidebarBorderTop}
-    border-top: 4px solid {color:Sidebar Border Color};
-    {/block:ifSidebarBorderTop}
-    {block:ifSidebarBorderRight}
-    border-right: 4px solid {color:Sidebar Border Color};
-    {/block:ifSidebarBorderRight}
-    {block:ifSidebarBorderBottom}
-    border-bottom: 4px solid {color:Sidebar Border Color};
-    {/block:ifSidebarBorderBottom}
-    {block:ifSidebarBorderLeft}
-    border-left: 4px solid {color:Sidebar Border Color};
-    {/block:ifSidebarBorderLeft}
   }
 
     /* Blog title */
     .blog-title {
     font-size:14px;
-    text-transform:uppercase;
+    text-transform:lowercase;
+    {block:ifSidebarTextRight}
+    text-align:right;
+    {/block:ifSidebarTextRight}
+    {block:ifSidebarTextLeft}
+    text-align:left;
+    {/block:ifSidebarTextLeft}
+    {block:ifSidebarTextCenter}
     text-align:center;
+    {/block:ifSidebarTextCenter}
     {block:ifNotTitle}
     display:none;
     {/block:ifNotTitle}
@@ -201,22 +190,40 @@ azurih.tumblr.com
       padding:4px;
     }
 
+    .blog-description {
+        {block:ifSidebarTextRight}
+        text-align:right;
+        {/block:ifSidebarTextRight}
+        {block:ifSidebarTextLeft}
+        text-align:left;
+        {/block:ifSidebarTextLeft}
+        {block:ifSidebarTextCenter}
+        text-align:center;
+        {/block:ifSidebarTextCenter}
+    }
+
    /* Navigation links */
   .nav-wrapper {
     padding-left:2px;
     padding-right:2px;
-    {block:ifNavigationLinksRight}
+    {block:ifSidebarTextRight}
     text-align:right;
-    {/block:ifNavigationLinksRight}
-    {block:ifNavigationLinksLeft}
+    {/block:ifSidebarTextRight}
+    {block:ifSidebarTextLeft}
     text-align:left;
-    {/block:ifNavigationLinksLeft}
-    {block:ifNavigationLinksCenter}
+    {/block:ifSidebarTextLeft}
+    {block:ifSidebarTextCenter}
     text-align:center;
-    {/block:ifNavigationLinksCenter}
+    {/block:ifSidebarTextCenter}
     line-height: 150%;
     text-transform: lowercase;
     word-spacing:10px;
+  }
+
+  .nav-wrapper {
+      list-style-type: none;
+      padding:0px;
+      margin:0px;
   }
 
   .nav-wrapper nav a:hover {
@@ -224,17 +231,36 @@ azurih.tumblr.com
       font-style:normal;
     }
 
+    #theme {
+      position:fixed;
+      margin-top:620px;
+      margin-left:15px;
+      width: 150px;
+      float:left;
+      text-align:left;
+  }
+
    /* Next and previous page */
   .pagination {
-      text-align:right;
+    {block:ifSidebarTextRight}
+    text-align:right;
+    {/block:ifSidebarTextRight}
+    {block:ifSidebarTextLeft}
+    text-align:left;
+    {/block:ifSidebarTextLeft}
+    {block:ifSidebarTextCenter}
+    text-align:center;
+    {/block:ifSidebarTextCenter}
   }
 
   .page-navigation {
       position:fixed;
-      margin-top:580px;
+      margin-top:430px;
       margin-left:80px;
       width: 150px;
       float:left;
+      padding-left:15px;
+      padding-right:15px;
       {block:ifInfiniteScroll}
       display:none;
       {/block:ifInfiniteScroll}
@@ -247,7 +273,7 @@ azurih.tumblr.com
       margin-top:20px;
       left:50%;
       {block:IndexPage}
-      width:900px; /*840px*/
+      width:900px;
       margin-left:-360px;
       {/block:IndexPage}
       {block:PermalinkPage}
@@ -268,14 +294,8 @@ azurih.tumblr.com
     width:400px;
     {/block:permalinkpage}
     padding:8px 8px 8px 8px;
-    {block:ifPostBorder}
-    border:2px solid {color:Post Border Color};
-    {/block:ifPostBorder}
     text-align:left;
     overflow:hidden;
-    {block:ifPostBackground}
-    background-color:{color:Post Background Color};
-    {/block:ifPostBackground}
   }
 
   /* When a post has an image */
@@ -283,10 +303,23 @@ azurih.tumblr.com
       max-width:100%;
   }
 
+  .post:hover .footer {
+    opacity:1;
+    display:block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
  /* Post footer information */
  .footer {
+  opacity:0;
   margin-top:5px;
-  text-align:right;
+  text-align:center;
+  font-size:10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   {block:PermalinkPage}
   opacity:0;
   {/block:PermalinkPage}
@@ -428,9 +461,7 @@ azurih.tumblr.com
             </h1>
 
             <!-- Description -->
-            {block:Description}
               <div class="blog-description">{Description}</div>
-            {block:Description}
         </div>
       </div>
 
@@ -439,30 +470,47 @@ azurih.tumblr.com
       <!-- Navigation links -->
       <div class="nav-wrapper">
         <nav>
+            <lu>
                 <!-- Home -->
                 {block:ifNotTitle}
+                <li>
                 <a href="/">home</a>
+                </li>
                 {/block:ifNotTitle}
                 <!-- Links -->
             {block:HasPages}
               {block:Pages}
+                  <li>
                   <a href="{URL}">{Label}</a>
+                  </li>
               {/block:Pages}
             {/block:HasPages}
                 <!-- Ask box -->
             {block:AskEnabled}
+                <li>
                 <a href="/ask">{text:Ask}</a>
+                </li>
             {/block:AskEnabled}
                 <!-- Archive -->
+                <li>
                 <a href="/archive">archive</a>
+                </li>
                 <!-- Submission -->
             {block:SubmissionsEnabled}
+                <li>
                 <a href="/submit">submit</a>
+                </li>
             {/block:SubmissionsEnabled}
-                <!-- Theme (Do not remove!!!) -->
-                <a href="http://azurih.tumblr.com/">theme</a>
+                <li>
+                    <a href="http://azurih.tumblr.com/" target="_blank">theme</a>
+                </li>
+            </lu>
         </nav>
       </div>
+    </div>
+
+    <div id="theme">
+        <a href="https://github.com/milebza/moonlight/blob/master/README.md" target="_blank">©</a>
     </div>
 
     <!-- Next page and previous page -->
@@ -488,7 +536,7 @@ azurih.tumblr.com
             {/block:Title}
             {Body}
               <div class="footer">
-                <a href="{Permalink}">{NoteCount} {text:Footer}</a>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
               </div>
               {block:PermalinkPage}
                 {block:Caption}
@@ -506,8 +554,9 @@ azurih.tumblr.com
               {block:IndexPage}
                 {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
                 <div class="footer">
-                  <a href="{Permalink}">{NoteCount} {text:Footer}</a>
-                </div>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+              </div>
+
               {/block:IndexPage}
               {block:PermalinkPage}
                 <img src="{PhotoURL-HighRes}"  alt="{PhotoAlt}">
@@ -526,8 +575,8 @@ azurih.tumblr.com
               {block:IndexPage}
                 {Photoset}
                 <div class="footer">
-                  <a href="{Permalink}">{NoteCount} {text:Footer}</a>
-                </div>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+              </div>
               {/block:IndexPage}
               {block:PermalinkPage}
                 {Photoset}
@@ -549,8 +598,8 @@ azurih.tumblr.com
                 <p class="source">~ {Source}</p>
                 {/block:Source}
                 <div class="footer">
-                  <a href="{Permalink}">{NoteCount} {text:Footer}</a>
-                </div>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+              </div>
               {block:IndexPage}
               {block:PermalinkPage}
                 <p class="quote">"{Quote}"</p>
@@ -576,7 +625,7 @@ azurih.tumblr.com
                 </div>
               {/block:Description}
               <div class="footer">
-                <a href="{Permalink}">{NoteCount} {text:Footer}</a>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
               </div>
               {block:PermalinkPage}
                 {block:Caption}
@@ -600,7 +649,7 @@ azurih.tumblr.com
                 {/block:Lines}
               </ul>
               <div class="footer">
-                <a href="{Permalink}">{NoteCount} {text:Footer}</a>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
               </div>
               {block:PermalinkPage}
                 {block:Caption}
@@ -643,8 +692,8 @@ azurih.tumblr.com
               </div>
               {block:IndexPage}
                 <div class="footer">
-                  <a href="{Permalink}">{NoteCount} {text:Footer}</a>
-                </div>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+              </div>
               {block:IndexPage}
               {block:PermalinkPage}
                 {block:Caption}
@@ -662,8 +711,8 @@ azurih.tumblr.com
               {block:IndexPage}
               {Video-250}
                 <div class="footer">
-                  <a href="{Permalink}">{NoteCount} {text:Footer}</a>
-                </div>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+              </div>
               {/block:IndexPage}
               {block:PermalinkPage}
               {Video-400}
@@ -693,7 +742,7 @@ azurih.tumblr.com
                 {Replies}
               </div>
               <div class="footer">
-                <a href="{Permalink}">{NoteCount} {text:Footer}</a>
+                <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
               </div>
               {block:PermalinkPage}
                 {block:Caption}
@@ -710,7 +759,7 @@ azurih.tumblr.com
             <div class="permalink">
                 <p class="notes">
                 {block:NoteCount}
-                <b>{text:Footer}:</b> {NoteCount} <br>
+                <b>notes:</b> {NoteCount} <br>
                 {/block:NoteCount}
 
                 {block:RebloggedFrom}
@@ -750,6 +799,9 @@ azurih.tumblr.com
         }
 
         {block:IndexPage}
+
+        fixAddedImage();
+
         // prevent any jQuery code from running before the document finishes loading
         $(function() {
             {block:ifInfiniteScroll}
@@ -798,7 +850,7 @@ azurih.tumblr.com
                 "screen": { columns: 3 }
             });
 
-            fixAddedImage();
+            //fixAddedImage();
         });
       {block:IndexPage}
       {block:PermalinkPage}
