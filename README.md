@@ -1,11 +1,11 @@
 ##Theme moonlight v.0
 
 ####Preview
-	Index page: (2nd image showing post hover in first post)
+Index page: (2nd image showing post hover in first post)
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index.jpg)
 ***
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index_hover.jpg)
-	Permalink page:
+Permalink page:
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_permalink.jpg)
 
 ####Features
