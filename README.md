@@ -1,4 +1,4 @@
-##Theme moonlight v.0
+##Theme #1 moonlight
 
 ####Preview
 Index page: (2nd image showing post hover in first post)
@@ -25,7 +25,7 @@ Permalink page:
 	* Custom scrollbar color and background color
 	* No limited number of links!
 	* Custom text for message
-	* Enable/disable inifinite scroll
+	* Enable/disable infinite scroll
 
 ####Download
 To install the theme click [here](https://www.tumblr.com/theme/40383?utm_medium=email&utm_source=www.tumblr.com&utm_campaign=&utm_term=view)!
