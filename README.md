@@ -28,7 +28,7 @@ Permalink page:
 	* Enable/disable inifinite scroll
 
 ####Download
-To try the theme click [here](https://github.com/milebza/moonlight/blob/master/my-theme.html), click in RAW, copy all that code and go to your blog >> Edit theme >> Edit HTML >> delete the current code and paste the new one!
+To install the theme click [here](https://www.tumblr.com/theme/40383?utm_medium=email&utm_source=www.tumblr.com&utm_campaign=&utm_term=view)!
 
 ####Theme for tumblr 
 Languages used:
