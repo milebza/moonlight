@@ -31,16 +31,16 @@
     <meta name="text:Ask" content="message">
 
     <meta name="if:Title" content="1">
-    <meta name="if:Title Background" content="0">
+    <meta name="if:Title Background" content="1">
 
     <meta name="if:Sidebar Text Center" content="0">
     <meta name="if:Sidebar Text Right" content="1">
     <meta name="if:Sidebar Text Left" content="1">
 
-    <meta name="if:Blog Border Top" content="0">
-    <meta name="if:Blog Border Right" content="0">
-    <meta name="if:Blog Border Bottom" content="0">
-    <meta name="if:Blog Border Left" content="0">
+    <meta name="if:Blog Border Top" content="1">
+    <meta name="if:Blog Border Right" content="1">
+    <meta name="if:Blog Border Bottom" content="1">
+    <meta name="if:Blog Border Left" content="1">
 
     <meta name="if:Sidebar Background" content="0">
 
@@ -73,6 +73,7 @@
   body {
     font-size: 12px;
     font-family:Arial;
+    line-height: 150%;
     background-color:{color:Background Color};
     background-image:url('{image:Tiled Background}');
     background-repeat:repeat;
@@ -82,6 +83,7 @@
   a {
     text-decoration: none;
     color:black;
+    font-style:normal;
   }
 
   a:hover {
@@ -154,8 +156,8 @@
     .sidebar {
     position:fixed;
     margin-top:50px;
-    margin-left:80px;
-    width: 150px;
+    margin-left:70px;
+    width: 160px;
     float:left;
     padding:10px 15px 10px 15px;
     {block:ifSidebarBackground}
@@ -166,7 +168,7 @@
     /* Blog title */
     .blog-title {
     font-size:14px;
-    text-transform:lowercase;
+    text-transform:uppercase;
     {block:ifSidebarTextRight}
     text-align:right;
     {/block:ifSidebarTextRight}
@@ -191,6 +193,7 @@
     }
 
     .blog-description {
+        font-style:italic;
         {block:ifSidebarTextRight}
         text-align:right;
         {/block:ifSidebarTextRight}
@@ -223,6 +226,13 @@
       list-style-type: none;
       padding:0px;
       margin:0px;
+      font-style:italic;
+  }
+  
+  .nav-wrapper li {
+      display:inline;
+      padding-right:10px;
+      padding-top:10px;
   }
 
   .nav-wrapper nav a:hover {
@@ -302,7 +312,7 @@
       max-width:100%;
   }
 
-  .post:hover .footer {
+  .post:hover .footer-center, .post:hover .footer {
     opacity:1;
     display:block;
     -webkit-transition: all 0.3s ease-in-out;
@@ -311,11 +321,10 @@
   }
 
  /* Post footer information */
- .footer {
+ .footer-center, .footer {
   opacity:0;
   margin-top:5px;
-  text-align:center;
-  font-size:10px;
+  font-size:11px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -323,15 +332,33 @@
   opacity:0;
   {/block:PermalinkPage}
  }
+ 
+ .footer-center {
+     text-align:center;
+ }
+ 
+ .footer {
+    text-align:right;
+ }
 
    /* POST TYPES */
     /* Text post */
    .text-title {
-     font-size:12px;
+     text-align:justify;
+     line-height: 150%;
+     font-size:14px; 
+ }
+ 
+ .text-title a {
+     font-style:italic;
  }
 
  .text-title a:hover {
-     font-style:normal;
+     font-style:italic;
+ }
+ 
+ .text-body {
+     font-size:13px;
  }
 
  /* Text with image correction size */
@@ -343,16 +370,25 @@
  .quote, .source {
      text-align:center;
  }
+ 
+ .quote {
+     font-size:14px;
+     font-style: italic;
+ }
 
        /* Chat post */
  .chat-title {
-     font-weight:bold;
+     text-align:justify;
+     line-height: 150%;
+     text-transform: uppercase;;
  }
 
  .chat-lines {
      list-style-type: none;
      padding:0;
      margin:0;
+     line-height: 150%;
+     font-size:13px;
  }
 
       /* Audio post */
@@ -425,12 +461,26 @@
  .video embed, .video object, .video iframe {
    {block:IndexPage}
    width:200px;
-   height:auto;
    {/block:IndexPage}
    {block:PermalinkPage}
    width:400px;
    {/block:PermalinkPage}
  }
+ 
+ /* Ask post */
+ .user-name {
+     text-transform: uppercase;
+ }
+ 
+    .question {
+    line-height: 150%;
+    text-align:justify;
+    }
+
+.answer {
+    line-height: 150%;
+    text-align:center;
+}
 
     /* Answer with image correction size */
   .answer figure {
@@ -529,11 +579,13 @@
           {block:Text}
             <div class="post text">
             {block:Title}
-              <h2 class="text-title">
+              <p class="text-title">
                 <a href="{Permalink}">{Title}</a>
-              </h2>
+              </p>
             {/block:Title}
+            <div class="text-body">
             {Body}
+            </div>
               <div class="footer">
                 <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
               </div>
@@ -552,7 +604,7 @@
             <div class="post">
               {block:IndexPage}
                 {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
-                <div class="footer">
+                <div class="footer-center">
                 <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
               </div>
 
@@ -573,7 +625,7 @@
             <div class="post">
               {block:IndexPage}
                 {Photoset}
-                <div class="footer">
+                <div class="footer-center">
                 <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
               </div>
               {/block:IndexPage}
@@ -709,7 +761,7 @@
             <div class="post">
               {block:IndexPage}
               {Video-250}
-                <div class="footer">
+                <div class="footer-center">
                 <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
               </div>
               {/block:IndexPage}
@@ -729,7 +781,7 @@
             <div class="post answer">
               <div class="question">
                 <p class="asker">
-                  <span class="user-name">{Asker}</span>{block:English} said{/block:English}: {Question}
+                  <span class="user-name">{Asker}</span>: <i>{Question}</i>
                 </p>
               </div>
               {block:Answerer}
