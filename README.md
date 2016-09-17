@@ -1,12 +1,13 @@
 ##Theme moonlight
 
 ####Preview
-Index page: (2nd image showing post hover in first post)
+Index page: (2nd image showing hover in photo post, 3rd image hover in ask post)
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index.jpg)
 ***
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index_hover_photo.jpg)
 ***
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index_hover_ask.jpg)
+
 Permalink page:
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_permalink.jpg)
 
