@@ -29,7 +29,7 @@ Index page: (2nd image showing hover in photo post, 3rd image hover in text post
 	* Custom text for message
 	* Enable/disable infinite scroll
 
-####Download
+####Install
 To install the theme click [here](https://www.tumblr.com/theme/40383?utm_medium=email&utm_source=www.tumblr.com&utm_campaign=&utm_term=view)!
 
 ####Theme for tumblr 
