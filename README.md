@@ -1,7 +1,8 @@
 ##Theme #1 moonlight
 
 ####Preview
-Index page: (2nd image showing hover in photo post, 3rd image hover in text post, 4th image Permalink page)
+Index page: 1st image, 2nd image showing hover in photo post, 3rd image hover in text post <br> 
+Permalink page: 4th image <br>
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index.jpg)
 ***
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index_hover_photo.jpg)
