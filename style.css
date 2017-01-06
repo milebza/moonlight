@@ -1,0 +1,484 @@
+/****************************************
+
+    Custom CSS
+    with Tumblr Customizable elements
+
+*****************************************/
+
+{CustomCSS}
+
+/* 
+    Savvior 3 columns 
+*/
+.column {
+    float: left;
+}
+.size-1of2 {
+    width: 50%;
+}
+.size-1of3 {
+    width: 33.33333%;
+}
+
+
+body {
+font-size: 12px;
+font-family:Arial;
+line-height: 150%;
+background-color:{color:Background Color};
+background-image:url('{image:Tiled Background}');
+background-repeat:repeat;
+}
+
+/* 
+    Links 
+*/
+a {
+    text-decoration: none;
+    color:black;
+    font-style:normal;
+}
+
+a:hover {
+    font-style:italic;
+}
+
+/* 
+    Scrollbar 
+*/
+::-webkit-scrollbar {
+    height:6px;
+    width:6px;
+    background-color: {color:Scrollbar Background Color};
+}
+
+::-webkit-scrollbar-thumb{
+    background-color:{color:Scrollbar Color};
+    border:1px solid {color:Scrollbar Background Color};
+    height:1px;
+}
+
+/* 
+    Blog borders 
+*/
+#top, #right, #bottom, #left {
+    background-color:{color:Blog Border Color};
+}
+
+#top {
+    height:10px;
+    width:100%;
+    top:0;
+    z-index:99;
+    position:fixed;
+    {block:ifBlogBorderTop}
+    display:none;
+    {/block:ifBlogBorderTop}
+}
+
+#right {
+    width:10px;
+    height:100%;
+    right:0;
+    z-index:99;
+    position:fixed;
+    {block:ifBlogBorderRight}
+    display:none;
+    {/block:ifBlogBorderRight}
+}
+
+#bottom {
+    height:10px;
+    width:100%;
+    bottom:0;
+    z-index:99;
+    position:fixed;
+    {block:ifBlogBorderBottom}
+    display:none;
+    {/block:ifBlogBorderBottom}
+}
+
+#left {
+    width:10px;
+    height:100%;
+    left:0;
+    z-index:99;
+    position:fixed;
+    {block:ifBlogBorderLeft}
+    display:none;
+    {/block:ifBlogBorderLeft}
+}
+
+/* 
+    Sidebar 
+*/
+.sidebar {
+    position:fixed;
+    margin-top:50px;
+    margin-left:70px;
+    width: 160px;
+    float:left;
+    padding:10px 15px 10px 15px;
+    {block:ifSidebarBackground}
+    background-color:{color:Sidebar Background Color};
+    {/block:ifSidebarBackground}
+}
+
+/* 
+    Blog title 
+*/
+.blog-title {
+    font-size:14px;
+    text-transform:uppercase;
+    {block:ifSidebarTextRight}
+    text-align:right;
+    {/block:ifSidebarTextRight}
+    {block:ifSidebarTextLeft}
+    text-align:left;
+    {/block:ifSidebarTextLeft}
+    {block:ifSidebarTextCenter}
+    text-align:center;
+    {/block:ifSidebarTextCenter}
+    {block:ifNotTitle}
+    display:none;
+    {/block:ifNotTitle}
+}
+
+.blog-title a {
+    color:{color:Title};
+    font-style:normal;
+    {block:ifTitleBackground}
+    background-color:{color:Title Background Color};
+    padding:4px;
+    {/block:ifTitleBackground}
+}
+
+.blog-description {
+    font-style:italic;
+    {block:ifSidebarTextRight}
+    text-align:right;
+    {/block:ifSidebarTextRight}
+    {block:ifSidebarTextLeft}
+    text-align:left;
+    {/block:ifSidebarTextLeft}
+    {block:ifSidebarTextCenter}
+    text-align:center;
+    {/block:ifSidebarTextCenter}
+}
+
+/* 
+    Navigation links 
+*/
+.nav-wrapper {
+    padding-left:2px;
+    padding-right:2px;
+    {block:ifSidebarTextRight}
+    text-align:right;
+    {/block:ifSidebarTextRight}
+    {block:ifSidebarTextLeft}
+    text-align:left;
+    {/block:ifSidebarTextLeft}
+    {block:ifSidebarTextCenter}
+    text-align:center;
+    {/block:ifSidebarTextCenter}
+    line-height: 150%;
+    text-transform: lowercase;
+}
+
+.nav-wrapper {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+    font-style:italic;
+}
+
+.nav-wrapper li {
+    display:inline;
+    padding-right:10px;
+    padding-top:10px;
+}
+
+.nav-wrapper nav a:hover {
+    text-decoration:underline;
+    font-style:normal;
+}
+
+/*
+    Credit
+*/
+
+#theme {
+    position:fixed;
+    bottom:12px;
+    margin-left:15px;
+    width: 150px;
+    float:left;
+    text-align:left;
+}
+
+/* 
+    Next and previous page 
+*/
+.pagination {
+    {block:ifSidebarTextRight}
+    text-align:right;
+    {/block:ifSidebarTextRight}
+    {block:ifSidebarTextLeft}
+    text-align:left;
+    {/block:ifSidebarTextLeft}
+    {block:ifSidebarTextCenter}
+    text-align:center;
+    {/block:ifSidebarTextCenter}
+}
+
+.page-navigation {
+    position:fixed;
+    margin-top:430px;
+    margin-left:80px;
+    width: 150px;
+    float:left;
+    padding-left:15px;
+    padding-right:15px;
+    {block:ifInfiniteScroll}
+    display:none;
+    {/block:ifInfiniteScroll}
+}
+
+/* 
+    Posts container 
+*/
+main {
+    position:absolute;
+    float:left;
+    margin-top:20px;
+    left:50%;
+    {block:IndexPage}
+    width:900px;
+    margin-left:-360px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    margin-left:-200px;
+    width:400px;
+    padding-top:30px;
+    margin-bottom:25px;
+    {/block:PermalinkPage}
+}
+
+/* 
+    Single post 
+*/
+.post {
+    {block:indexpage}
+    width:210px;
+    margin:35px;
+    {/block:indexpage}
+    {block:permalinkpage}
+    width:400px;
+    {/block:permalinkpage}
+    padding:8px 8px 8px 8px;
+    text-align:left;
+    overflow:hidden;
+}
+
+/* 
+    Post with image 
+*/
+.post img {
+    max-width:100%;
+}
+
+/* 
+    Post footer 
+*/
+.post:hover .footer-center, .post:hover .footer {
+    opacity:1;
+    display:block;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-center, .footer {
+    opacity:0;
+    margin-top:5px;
+    font-size:11px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    {block:PermalinkPage}
+    opacity:0;
+    {/block:PermalinkPage}
+}
+
+.footer-center {
+    text-align:center;
+}
+
+.footer {
+    text-align:right;
+}
+
+/* * * * * * * * 
+    POST TYPES 
+* * * * * * * * /
+
+/* 
+    Text post 
+*/
+.text-title {
+    text-align:justify;
+    line-height: 150%;
+    font-size: 14px; 
+}
+
+.text-title a {
+    font-style:italic;
+}
+
+.text-title a:hover {
+    font-style:italic;
+}
+
+.text-body {
+    font-size: 13px;
+}
+
+/* 
+    Text image correction size 
+*/
+.text figure {
+    margin: 5px 0 !important;
+}
+
+/* 
+    Quote post 
+*/
+.quote, .source {
+    text-align:center;
+}
+
+.quote {
+    font-size: 14px;
+    font-style:italic;
+}
+
+/* 
+    Chat post 
+*/
+.chat-title {
+text-align:justify;
+line-height: 150%;
+text-transform:uppercase;;
+}
+
+.chat-lines {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+    line-height:150%;
+    font-size:13px;
+}
+
+/* 
+    Audio post 
+*/
+.audiopost {
+    {block:IndexPage}
+    width:200px;
+    padding-bottom:10px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:400px;
+    padding-bottom:110px;
+    {/block:PermalinkPage}
+}
+
+.albumart {
+    position: absolute;
+    {block:IndexPage}
+    width:50px;
+    height:50px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:150px;
+    height:150px;
+    {/block:PermalinkPage}
+}
+
+.albumart img {
+    float:left;
+    {block:IndexPage}
+    width:50px;
+    height:50px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:150px;
+    height:150px;
+    {/block:PermalinkPage}
+}
+
+.playbox {
+    opacity:0.6;
+    width:27px;
+    height:30px;
+    overflow:hidden;
+    position:absolute;
+    z-index:2;
+    {block:IndexPage}
+    margin-left:11px;
+    margin-top:12px;
+    {block:IndexPage}
+    {block:PermalinkPage}
+    margin-left:60px;
+    margin-top:61px;
+    {/block:PermalinkPage}
+}
+
+.info {
+    margin-top:2px;
+    line-height:12px;
+    font-size:8px;
+    text-transform:uppercase;
+    {block:IndexPage}
+    margin-left:58px;
+    {block:IndexPage}
+    {block:PermalinkPage}
+    margin-left:158px;
+    {/block:PermalinkPage}
+}
+
+/* 
+    Video post 
+*/
+.video embed, .video object, .video iframe {
+    {block:IndexPage}
+    width:200px;
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:400px;
+    {/block:PermalinkPage}
+}
+
+/* 
+    Ask post 
+*/
+.user-name {
+    text-transform: uppercase;
+}
+
+.question {
+    line-height: 150%;
+    text-align:justify;
+}
+
+.answer {
+    line-height: 150%;
+    text-align:center;
+}
+
+/* 
+    Answer with image correction size 
+*/
+.answer figure {
+    margin: 5px 0 !important;
+}

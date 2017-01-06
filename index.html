@@ -1,0 +1,393 @@
+<!doctype html>
+
+<!--
+
+    MOONLIGHT THEME
+    BY AZURIH
+
+    may 2016
+
+    azurih.tumblr.com
+
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{Title}</title>
+
+        {block:Description}
+        <meta name="description" content="{MetaDescription}">
+        {/block:Description}
+
+        {block:Hidden}
+        <meta name="color:Blog Border Color" content="#ffffff">
+        <meta name="color:Background Color" content="#ffffff">
+        <meta name="color:Title" content="#000000">
+        <meta name="color:Title Background Color" content="#ffffff">
+        <meta name="color:Sidebar Background Color" content="#ffffff">
+        <meta name="color:Scrollbar Color" content="#000000">
+        <meta name="color:Scrollbar Background Color" content="#ffffff">
+        <meta name="image:Tiled Background" content="">
+        <meta name="text:Ask" content="message">
+
+        <meta name="if:Title" content="1">
+        <meta name="if:Title Background" content="1">
+
+        <meta name="if:Sidebar Text Center" content="0">
+        <meta name="if:Sidebar Text Right" content="1">
+        <meta name="if:Sidebar Text Left" content="1">
+
+        <meta name="if:Blog Border Top" content="1">
+        <meta name="if:Blog Border Right" content="1">
+        <meta name="if:Blog Border Bottom" content="1">
+        <meta name="if:Blog Border Left" content="1">
+
+        <meta name="if:Sidebar Background" content="0">
+
+        <meta name="if:Infinite Scroll" content="0">
+        {/block:Hidden}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+
+        <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/xeccbfq/9Qenv9yn8/normalize.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body class="{block:IndexPage}is-index-page{/block:IndexPage} {block:PermalinkPage}is-permalink-page{/block:PermalinkPage}">
+        
+        <!-- Blog borders -->
+        <div id="left"></div>
+        <div id="right"></div>
+        <div id="top"></div>
+        <div id="bottom"></div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+
+            <!-- Blog information -->
+            <div class="meta-wrapper">
+                <div class="blog-details">
+                    <!-- Title -->
+                    <h1 class="blog-title">
+                        <p><a href="/" title="{lang:Home}">{Title}</a><p>
+                    </h1>
+                    <!-- Description -->
+                    <div class="blog-description">{Description}</div>
+                </div>
+            </div>
+            <br>
+
+            <!-- Navigation links -->
+            <div class="nav-wrapper">
+                <nav>
+                    <ul>
+                        <!-- Home -->
+                        {block:ifNotTitle}
+                        <li>
+                            <a href="/">home</a>
+                        </li>
+                        {/block:ifNotTitle}
+                        
+                        <!-- Links -->
+                        {block:HasPages}
+                        {block:Pages}
+                        <li>
+                            <a href="{URL}">{Label}</a>
+                        </li>
+                        {/block:Pages}
+                        {/block:HasPages}
+                        
+                        <!-- Ask box -->
+                        {block:AskEnabled}
+                        <li>
+                            <a href="/ask">{text:Ask}</a>
+                        </li>
+                        {/block:AskEnabled}
+                        
+                        <!-- Archive -->
+                        <li>
+                            <a href="/archive">archive</a>
+                        </li>
+                        
+                        <!-- Submission -->
+                        {block:SubmissionsEnabled}
+                        <li>
+                            <a href="/submit">submit</a>
+                        </li>
+                        {/block:SubmissionsEnabled}
+                        
+                        <!-- Credit -->
+                        <li>
+                            <a href="http://azurih.tumblr.com/" target="_blank" title="theme by azurih">theme</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div> <!-- end nav-wrapper -->
+        </div> <!-- end sidebar -->
+        
+        <!-- Credit -->
+        <div id="theme">
+            <a href="https://www.tumblr.com/theme/40383?utm_medium=email&utm_source=www.tumblr.com&utm_campaign=&utm_term=view" target="_blank" title="theme by azurih">©</a>
+        </div>
+
+        <!-- Next and previous page -->
+        {block:Pagination}
+        <div class="page-navigation">
+            <nav class="pagination">
+                {block:PreviousPage}<a href="{PreviousPage}">prev</a>{/block:PreviousPage}
+                <br>
+                {block:NextPage}<a href="{NextPage}" class="next-page">next</a>{/block:NextPage}
+            </nav>
+        </div>
+        {/block:Pagination}
+
+        <!-- Posts Container -->
+        <main role="main">
+            {block:Posts}
+            <article>
+                
+                <!-- TEXT POST -->
+                {block:Text}
+                <div class="post text">
+                    {block:Title}
+                    <p class="text-title">
+                        <a href="{Permalink}">{Title}</a>
+                    </p>
+                    {/block:Title}
+                    <div class="text-body">
+                        {Body}
+                    </div>
+                    <div class="footer">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {block:PermalinkPage}
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Text}
+
+                <!-- PHOTO POST -->
+                {block:Photo}
+                <div class="post">
+                    {block:IndexPage}
+                    {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
+                    <div class="footer-center">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                    <img src="{PhotoURL-HighRes}"  alt="{PhotoAlt}">
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Photo}
+
+                <!-- PHOTOSET POST -->
+                {block:Photoset}
+                <div class="post">
+                    {block:IndexPage}
+                    {Photoset}
+                    <div class="footer-center">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                    {Photoset}
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Photoset}
+
+                <!-- QUOTE POST -->
+                {block:Quote}
+                <div class="post">
+                    {block:IndexPage}
+                    <p class="quote">"{Quote}"</p>
+                    {block:Source}
+                    <p class="source">~ {Source}</p>
+                    {/block:Source}
+                    <div class="footer">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {block:IndexPage}
+                    {block:PermalinkPage}
+                    <p class="quote">"{Quote}"</p>
+                    {block:Source}
+                    <p class="source">~ {Source}</p>
+                    {/block:Source}
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Quote}
+
+                <!-- LINK POST -->
+                {block:Link}
+                <div class="post">
+                    <a {Target} href="{URL}" class="link-name">{Name}</a>
+                    {block:Description}
+                    <div class="source">{Description}</div>
+                    {/block:Description}
+                    <div class="footer">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {block:PermalinkPage}
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Link}
+
+                <!-- CHAT POST -->
+                {block:Chat}
+                <div class="post">
+                    <p class="chat-title">{block:Title}{Title}{block:Title}</p>
+                    <ul class="chat-lines">
+                        {block:Lines}
+                        <li>
+                            {block:Label}<span class="label">{Label}</span>{/block:Label} {Line}
+                        </li>
+                        {/block:Lines}
+                    </ul>
+                    <div class="footer">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {block:PermalinkPage}
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Chat}
+
+                <!-- AUDIO POST -->
+                {block:Audio}
+                <div class="post">
+                    <div class="audiopost">
+                        {block:AlbumArt}
+                        <div class="albumart">
+                            <img src="{AlbumArtURL}">
+                        </div>
+                        {/block:AlbumArt}
+                        <div class="playbox">{block:AudioPlayer}{AudioPlayerWhite}{/block:AudioPlayer}</div>
+                        <div class="info">
+                            <b>Artist:</b>
+                            <span {block:Artist} style="display:none;"{/block:Artist}>Unknown</span>
+                            {block:Artist}{Artist}{/block:Artist}
+                            <br>
+                            <b>Title:</b>
+                            <span{block:TrackName} style="display:none;"{/block:TrackName}>Unknown</span>
+                            {block:TrackName}{TrackName}{/block:TrackName}
+                            <br>
+                            <b>Album:</b>
+                            <span{block:Album} style="display:none;"{/block:Album}>Unknown</span>
+                            {block:Album}{Album}{/block:Album}{block:PlayCount}
+                            <br>
+                            <b>Plays:</b>
+                            {FormattedPlayCount}{/block:PlayCount}
+                        </div> <!-- end info -->
+                    </div> <!-- end audiopost -->
+                    {block:IndexPage}
+                    <div class="footer">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {block:IndexPage}
+                    {block:PermalinkPage}
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Audio}
+
+                <!-- VIDEO POST -->
+                {block:Video}
+                <div class="post">
+                    {block:IndexPage}
+                    {Video-250}
+                    <div class="footer-center">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                    {Video-400}
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Video}
+
+                <!-- ANSWER POST -->
+                {block:Answer}
+                <div class="post answer">
+                    <div class="question">
+                        <p class="asker">
+                            <span class="user-name">{Asker}</span>: 
+                            <i>{Question}</i>
+                        </p>
+                    </div>
+                    {block:Answerer}
+                    <div class="answer">{Answer}</div>
+                    {/block:Answerer}
+                    <div class="replies">{Replies}</div>
+                    <div class="footer">
+                        <a href="{Permalink}" target="_blank">{NoteCount}</a> | <a href="{ReblogURL}" target="_blank">reblog</a>
+                    </div>
+                    {block:PermalinkPage}
+                    {block:Caption}
+                    <div class="caption">{Caption}</div>
+                    {/block:Caption}
+                    {/block:PermalinkPage}
+                </div>
+                {/block:Answer}
+
+                <!-- PERMALINK PAGE -->
+                {block:PermalinkPage}
+                <div class="permalink">
+                    <p class="notes">
+                        {block:NoteCount}
+                        <b>notes:</b> {NoteCount} <br>
+                        {/block:NoteCount}
+
+                        {block:RebloggedFrom}
+                        <b>from:</b> <a href="{ReblogParentURL}">{ReblogParentName}</a> <br>
+                        {/block:RebloggedFrom}
+
+                        {block:ContentSource}
+                        <b>source:</b> <a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}
+                    </p>
+                    {block:hastags}
+                    {block:tags}
+                    #<a href="/tagged/{Tag}">{Tag}</a> &nbsp;&nbsp;
+                    {/block:tags}
+                    {/block:hastags}
+                    {PostNotes}
+                </div>
+                {/block:PermalinkPage}
+            </article> <!-- end article -->
+            {/block:Posts}
+        </main> <!-- end main -->
+
+        <script src="//static.tumblr.com/xeccbfq/Qgqnv9yqb/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js"></script>
+        <script src="http://static.tumblr.com/biqa6bt/rJRo76dnm/savvior_hack.js"></script>
+
+        <script src="main.js"></script>
+
+    </body>
+</html>
