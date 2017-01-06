@@ -3,11 +3,11 @@
 ####Preview
 Index page: 1st and 2nd image <br> 
 Permalink page: 3rd image <br>
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/index.jpg)
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/index.JPG)
 ***
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme.gif)
 ***
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/permalink.jpg)
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/permalink.JPG)
 
 ####Features
 
