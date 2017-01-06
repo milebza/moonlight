@@ -1,15 +1,13 @@
 ##Theme #1 moonlight
 
 ####Preview
-Index page: 1st image, 2nd image showing hover in photo post, 3rd image hover in text post <br> 
-Permalink page: 4th image <br>
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index.jpg)
+Index page: 1st and 2nd image <br> 
+Permalink page: 3rd image <br>
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/index.jpg)
 ***
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index_hover_photo.jpg)
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme.gif)
 ***
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_index_hover_ask.jpg)
-***
-![alt tag](https://github.com/milebza/moonlight/blob/master/assets/theme_permalink.jpg)
+![alt tag](https://github.com/milebza/moonlight/blob/master/assets/permalink.jpg)
 
 ####Features
 
