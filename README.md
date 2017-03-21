@@ -1,6 +1,6 @@
-## Theme #1 moonlight
+# Theme #1 moonlight
 
-#### Preview
+### Preview
 Index page: 1st and 2nd image <br> 
 Permalink page: 3rd image <br>
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/index.JPG)
@@ -9,7 +9,7 @@ Permalink page: 3rd image <br>
 ***
 ![alt tag](https://github.com/milebza/moonlight/blob/master/assets/permalink.JPG)
 
-#### Features
+### Features
 
 	* 3 columns
 	* Sidebar on left
@@ -28,10 +28,10 @@ Permalink page: 3rd image <br>
 	* Custom text for message
 	* Enable/disable infinite scroll
 
-#### Install
+### Install
 To install the theme click [here](https://www.tumblr.com/theme/40383?utm_medium=email&utm_source=www.tumblr.com&utm_campaign=&utm_term=view)!
 
-#### Theme for tumblr 
+### Theme for tumblr 
 Languages used:
 
 	* HTML 
