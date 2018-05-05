@@ -1,4 +1,4 @@
-# Theme #1 moonlight
+# moonlight theme
 
 ### Preview
 Index page: 1st and 2nd image <br> 
